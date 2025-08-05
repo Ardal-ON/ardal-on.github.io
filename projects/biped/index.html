@@ -1,106 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="Biped Robot Project">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="Biped Robot Control Walking">
+  <meta name="description" content="Biped Robot Project - A 2D biped robot model using MATLAB Simscape with MPC control for stable locomotion">
+  <meta name="keywords" content="Biped Robot Control Walking MPC MATLAB Simscape">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Ardalan Aryashad">
 
-
-  <title>Ardalan Aryashad</title>
+  <title>Biped Walking Robot - Ardalan Aryashad</title>
   <link rel="icon" type="image/x-icon" href="../../images/favicon/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
-
-  <link rel="stylesheet" href="../static/css/bulma.min.css">
-  <link rel="stylesheet" href="../static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="../static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="../static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="../static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="../static/js/fontawesome.all.min.js"></script>
-  <script src="../static/js/bulma-carousel.min.js"></script>
-  <script src="../static/js/bulma-slider.min.js"></script>
-  <script src="../static/js/index.js"></script>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../static/css/template.css">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="images/walkf.mp4" as="video">
 </head>
 <body>
 
-
   <section class="hero">
     <div class="hero-body">
-      <div class="container is-max-desktop">
+      <div class="container">
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">Biped Walking Robot</h1>
             <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
               <span class="author-block">
                 <a href="https://ardal-on.github.io" target="_blank">Ardalan Aryashad</a><sup></sup>,</span>
-                <span class="author-block non-link-author">
-                  Dakota Mercer<sup></sup>,
-                </span>
-                <span class="author-block non-link-author">
-                  Ibrahim K. Ozaslan
-                </span>
-                  </div>
+              <span class="author-block non-link-author">
+                Dakota Mercer<sup></sup>,
+              </span>
+              <span class="author-block non-link-author">
+                Ibrahim K. Ozaslan
+              </span>
+            </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">AME 556: Robot Dynamics and Control<br>Fall 2024</span>
-                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
-                  </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">AME 556: Robot Dynamics and Control<br>Fall 2024</span>
+            </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <!-- <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a> -->
-                    </span>
-
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="images/AME_556_Project.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- Github link -->
-                  <!-- <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a> -->
-                </span>
-
-                <!-- ArXiv abstract Link -->
-                <!-- <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="images/AME_556_Project.pdf" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a> -->
+                  <span class="icon">📄</span>
+                  <span>Supplementary</span>
+                </a>
               </span>
             </div>
           </div>
@@ -110,33 +56,14 @@
   </div>
 </section>
 
-
-<!-- Teaser video-->
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section> -->
-<!-- End teaser video -->
-
-
 <!-- Paper abstract -->
 <section class="section hero is-light">
-  <div class="container is-max-desktop">
+  <div class="container">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-
             In this project, we developed a 2D biped robot model using MATLAB Simscape, focusing on integrating physical constraints and using MPC control to achieve stable locomotion. 
             We began by defining the robot's physical characteristics and configuring the Simscape environment to simulate 2D gravity and contact dynamics, that was crucial for realistic and accurate simulations.
             Then designed proportional-derivative (PD) controllers to stabilize the robot's joints.
@@ -149,152 +76,126 @@
     </div>
   </div>
 </section>
-<!-- End paper abstract -->
-
 
 <!-- Video carousel -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Demo</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item">
-          <video poster="" id="video1" class="centered-video" controls muted loop>
-            <!-- Your video file here -->
-            <source src="images/walkf.mp4" type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">Walking Forward</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Demo</h2>
+          <div class="content has-text-justified">
+            <p>
+              The following videos demonstrate the biped robot's locomotion capabilities through MATLAB Simscape simulations. 
+              Each simulation showcases different walking patterns: forward walking, backward walking, and stair climbing. 
+              The robot model was designed and simulated using MATLAB Simscape, which provides accurate physics-based modeling 
+              for the 2D biped robot with proper contact dynamics and gravity simulation.
+            </p>
+          </div>
         </div>
-        <div class="item">
-          <video poster="" id="video2" class="centered-video" controls muted loop>
-            <!-- Your video file here -->
-            <source src="images/walkb.mp4" type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">Walking Backward</h2>
+      </div>
+      <div class="carousel-container">
+        <div class="carousel-wrapper">
+          <div class="carousel-slide active">
+            <video poster="" controls muted loop preload="metadata">
+              <source src="images/walkf.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">Walking Forward</h2>
+          </div>
+          <div class="carousel-slide">
+            <video poster="" controls muted loop preload="metadata">
+              <source src="images/walkb.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">Walking Backward</h2>
+          </div>
+          <div class="carousel-slide">
+            <video poster="" controls muted loop preload="metadata">
+              <source src="images/stair.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">Stair Climbing</h2>
+          </div>
         </div>
-        <div class="item">
-          <video poster="" id="video3" class="centered-video" controls muted loop>
-            <!-- Your video file here -->
-            <source src="images/stair.mp4" type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">Stair Climbing</h2>
+        <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+        <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+        <div class="carousel-dots">
+          <span class="dot active" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End video carousel -->
-
 
 <!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Figures</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="images/1.png" alt="Figure 1" class="centered-image"/>
-        <h2 class="subtitle has-text-centered">
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="images/2.png" alt="Figure 2" class="centered-image"/>
-        <h2 class="subtitle has-text-centered">
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="images/3.png" alt="Figure 3" class="centered-image"/>
-        <h2 class="subtitle has-text-centered">
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="images/4.png" alt="Figure 4" class="centered-image"/>
-      <h2 class="subtitle has-text-centered">
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container"> -->
-      <!-- Paper video. -->
-      <!-- <h2 class="title is-3">Video Presentation</h2>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          
-          <div class="publication-video"> -->
-            <!-- Youtube embed code here -->
-            <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <h2 class="title is-3">Figures</h2>
+          <div class="content has-text-justified">
+            <p>
+              The following images are exported plots from the Simscape simulations corresponding to each video shown above. 
+              These figures provide detailed analysis of the robot's performance during different locomotion tasks.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section> -->
-<!-- End youtube video -->
-
-
-
-<!-- Paper poster -->
-<!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
+      <div class="carousel-container">
+        <div class="carousel-wrapper">
+          <div class="carousel-slide active">
+            <img src="images/1.webp" alt="Figure 1"/>
+            <h2 class="subtitle has-text-centered">
+            </h2>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/2.webp" alt="Figure 2"/>
+            <h2 class="subtitle has-text-centered">
+            </h2>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/3.webp" alt="Figure 3"/>
+            <h2 class="subtitle has-text-centered">
+           </h2>
+         </div>
+         <div class="carousel-slide">
+          <img src="images/4.webp" alt="Figure 4"/>
+          <h2 class="subtitle has-text-centered">
+          </h2>
+        </div>
+      </div>
+      <button class="carousel-btn prev" onclick="changeSlide(-1, 1)">❮</button>
+      <button class="carousel-btn next" onclick="changeSlide(1, 1)">❯</button>
+      <div class="carousel-dots">
+        <span class="dot active" onclick="currentSlide(1, 1)"></span>
+        <span class="dot" onclick="currentSlide(2, 1)"></span>
+        <span class="dot" onclick="currentSlide(3, 1)"></span>
+        <span class="dot" onclick="currentSlide(4, 1)"></span>
       </div>
     </div>
-  </section> -->
-<!--End paper poster -->
+  </div>
+</div>
+</section>
 
-
-<!--BibTex citation -->
-  <!-- <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
-    </div>
-</section> -->
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
+<footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This page was built using a modified version of the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> 
+            to improve loading speed and user experience. The source code for this modified template is available at 
+            <a href="https://github.com/Ardal-ON/ardal-on.github.io" target="_blank">GitHub</a>.
           </p>
-
         </div>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+<!-- JavaScript -->
+<script src="../static/js/template.js"></script>
 
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+</body>
+</html>
