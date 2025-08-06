@@ -126,11 +126,11 @@
         </div>
         <!-- Image placeholder -->
         <div class="has-text-centered" style="margin-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
-          <div style="flex: 1 1 320px; max-width: 480px;">
+          <div style="flex: 1 1 280px; max-width: 100%;">
             <img src="images/data.webp" alt="Raw Data Distribution" style="width: 100%; max-width: 100%; border-radius: 6px;">
             <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 2: Raw data before preprocessing</div>
           </div>
-          <div style="flex: 1 1 320px; max-width: 480px;">
+          <div style="flex: 1 1 280px; max-width: 100%;">
             <img src="images/preprocessed.webp" alt="Preprocessed Data Distribution" style="width: 100%; max-width: 100%; border-radius: 6px;">
             <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 3: Data after outlier removal and MinMax scaling</div>
           </div>
@@ -169,44 +169,44 @@
           </p>
         </div>
         <div class="has-text-centered" style="margin-top: 2rem;">
-          <table style="margin: 0 auto; border-collapse: collapse; max-width: 600px; width: 100%;">
+          <table style="margin: 0 auto; border-collapse: collapse; width: 100%; max-width: 100%;">
             <thead>
               <tr style="background-color: #f5f5f5;">
-                <th style="padding: 0.75rem 1rem; border-bottom: 2px solid #ccc; text-align: left;">Model</th>
-                <th style="padding: 0.75rem 1rem; border-bottom: 2px solid #ccc; text-align: center;">Training Accuracy</th>
-                <th style="padding: 0.75rem 1rem; border-bottom: 2px solid #ccc; text-align: center;">Testing Accuracy</th>
+                <th style="padding: 0.5rem 0.5rem; border-bottom: 2px solid #ccc; text-align: left; word-wrap: break-word;">Model</th>
+                <th style="padding: 0.5rem 0.5rem; border-bottom: 2px solid #ccc; text-align: center; word-wrap: break-word;">Training Accuracy</th>
+                <th style="padding: 0.5rem 0.5rem; border-bottom: 2px solid #ccc; text-align: center; word-wrap: break-word;">Testing Accuracy</th>
               </tr>
             </thead>
             <tbody>
               <tr style="background-color: #ffffff;">
-                <td style="padding: 0.5rem 1rem; border-bottom: 1px solid #eee; text-align: left;">Logistic Regression</td>
-                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">66.74%</td>
-                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">65.91%</td>
+                <td style="padding: 0.5rem 0.5rem; border-bottom: 1px solid #eee; text-align: left; word-wrap: break-word;">Logistic Regression</td>
+                <td style="padding: 0.5rem 0.5rem; text-align: center; border-bottom: 1px solid #eee;">66.74%</td>
+                <td style="padding: 0.5rem 0.5rem; text-align: center; border-bottom: 1px solid #eee;">65.91%</td>
               </tr>
               <tr style="background-color: #f9fafb;">
-                <td style="padding: 0.5rem 1rem; border-bottom: 1px solid #eee; text-align: left;">Decision Tree Classifier</td>
-                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">68.95%</td>
-                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">64.59%</td>
+                <td style="padding: 0.5rem 0.5rem; border-bottom: 1px solid #eee; text-align: left; word-wrap: break-word;">Decision Tree Classifier</td>
+                <td style="padding: 0.5rem 0.5rem; text-align: center; border-bottom: 1px solid #eee;">68.95%</td>
+                <td style="padding: 0.5rem 0.5rem; text-align: center; border-bottom: 1px solid #eee;">64.59%</td>
               </tr>
               <tr style="background-color: #ffffff;">
-                <td style="padding: 0.5rem 1rem; border-bottom: 1px solid #eee; text-align: left;">Random Forest Classifier</td>
-                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;"><strong>79.33%</strong></td>
-                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">65.64%</td>
+                <td style="padding: 0.5rem 0.5rem; border-bottom: 1px solid #eee; text-align: left; word-wrap: break-word;">Random Forest Classifier</td>
+                <td style="padding: 0.5rem 0.5rem; text-align: center; border-bottom: 1px solid #eee;"><strong>79.33%</strong></td>
+                <td style="padding: 0.5rem 0.5rem; text-align: center; border-bottom: 1px solid #eee;">65.64%</td>
               </tr>
               <tr style="background-color: #f9fafb;">
-                <td style="padding: 0.5rem 1rem; border-bottom: 1px solid #eee; text-align: left;">K-Neighbors Classifier</td>
-                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">75.28%</td>
-                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">62.21%</td>
+                <td style="padding: 0.5rem 0.5rem; border-bottom: 1px solid #eee; text-align: left; word-wrap: break-word;">K-Neighbors Classifier</td>
+                <td style="padding: 0.5rem 0.5rem; text-align: center; border-bottom: 1px solid #eee;">75.28%</td>
+                <td style="padding: 0.5rem 0.5rem; text-align: center; border-bottom: 1px solid #eee;">62.21%</td>
               </tr>
               <tr style="background-color: #ffffff;">
-                <td style="padding: 0.5rem 1rem; border-bottom: 1px solid #eee; text-align: left;"><strong>Gaussian Naive-Bayes</strong></td>
-                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">67.09%</td>
-                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;"><strong>66.11%</strong></td>
+                <td style="padding: 0.5rem 0.5rem; border-bottom: 1px solid #eee; text-align: left; word-wrap: break-word;"><strong>Gaussian Naive-Bayes</strong></td>
+                <td style="padding: 0.5rem 0.5rem; text-align: center; border-bottom: 1px solid #eee;">67.09%</td>
+                <td style="padding: 0.5rem 0.5rem; text-align: center; border-bottom: 1px solid #eee;"><strong>66.11%</strong></td>
               </tr>
               <tr style="background-color: #f9fafb;">
-                <td style="padding: 0.5rem 1rem; text-align: left;">Support Vector Machine</td>
-                <td style="padding: 0.5rem 1rem; text-align: center;">64.88%</td>
-                <td style="padding: 0.5rem 1rem; text-align: center;">60.77%</td>
+                <td style="padding: 0.5rem 0.5rem; text-align: left; word-wrap: break-word;">Support Vector Machine</td>
+                <td style="padding: 0.5rem 0.5rem; text-align: center;">64.88%</td>
+                <td style="padding: 0.5rem 0.5rem; text-align: center;">60.77%</td>
               </tr>
             </tbody>
           </table>
@@ -235,10 +235,10 @@
 
 <section class="section hero is-light">
   <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths" style="margin-left:auto; margin-right:auto;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
         <h2 class="title is-3 has-text-centered">A Mobile-Friendly Dashboard</h2>
-        <div class="content has-text-justified has-text-centered" style="margin-left:auto; margin-right:auto;">
+        <div class="content has-text-justified">
           <p>
             After building the prediction model, we needed to make it easy to use. So, we created a simple and clear user interface using <strong>Flet</strong>, a Python tool for making apps that work on Android, iOS, and desktop. This let us write one codebase that runs everywhere, matching our goal of keeping the app clean and easy to understand.
           </p>
@@ -248,53 +248,53 @@
         </div>
 
         <!-- Home Page -->
-        <div class="content has-text-justified has-text-centered" style="margin-top: 2rem; margin-left:auto; margin-right:auto;">
-          <ul style="display:inline-block; text-align:left;">
+        <div class="content has-text-justified" style="margin-top: 2rem;">
+          <ul style="text-align:left; max-width: 100%; word-wrap: break-word;">
             <li>
-              <strong>Home Page:</strong> A welcome screen with general car info. Users can enter six engine values in dedicated boxes. There’s also a “Randomize” button to quickly test different inputs for demos.
-            </li>
-          </ul>
-        </div>
-        <!-- Image placeholder -->
-        <div class="content has-text-centered" style="margin-top: 2rem;">
-            <img src="images/home.webp" alt="Home Page" style="width: 100%; max-width: 600px; border-radius: 6px; max-height: 680px; object-fit: contain; margin-left:auto; margin-right:auto; display:block;">
-            <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 4: Home page for entering engine values and randomizing inputs.</div>
-        </div>
-
-        <!-- Dashboard Page -->
-        <div class="content has-text-justified has-text-centered" style="margin-top: 2rem; margin-left:auto; margin-right:auto;">
-          <ul style="display:inline-block; text-align:left;">
-            <li>
-              <strong>Dashboard Page:</strong> Shows the prediction result. The app tells users if their car’s condition is <span style="color:green;"><strong>Good</strong></span>, <span style="color:orange;"><strong>Poor</strong></span>, or <span style="color:red;"><strong>Bad</strong></span> using clear color labels.
+              <strong>Home Page:</strong> A welcome screen with general car info. Users can enter six engine values in dedicated boxes. There's also a "Randomize" button to quickly test different inputs for demos.
             </li>
           </ul>
         </div>
         <!-- Image placeholder -->
         <div class="has-text-centered" style="margin-top: 2rem;">
-            <img src="images/dashboard.webp" alt="Dashboard Page" style="width: 100%; max-width: 600px; border-radius: 6px; max-height: 680px; object-fit: contain; margin-left:auto; margin-right:auto; display:block;">
-            <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 5: Dashboard page showing the car’s predicted condition.</div>
+            <img src="images/home.webp" alt="Home Page" style="width: 400px; max-width: 80%; border-radius: 6px;">
+            <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 4: Home page for entering engine values and randomizing inputs.</div>
+        </div>
+
+        <!-- Dashboard Page -->
+        <div class="content has-text-justified" style="margin-top: 2rem;">
+          <ul style="text-align:left; max-width: 100%; word-wrap: break-word;">
+            <li>
+              <strong>Dashboard Page:</strong> Shows the prediction result. The app tells users if their car's condition is <span style="color:green;"><strong>Good</strong></span>, <span style="color:orange;"><strong>Poor</strong></span>, or <span style="color:red;"><strong>Bad</strong></span> using clear color labels.
+            </li>
+          </ul>
+        </div>
+        <!-- Image placeholder -->
+        <div class="has-text-centered" style="margin-top: 2rem;">
+            <img src="images/dashboard.webp" alt="Dashboard Page" style="width: 400px; max-width: 80%; border-radius: 6px;">
+            <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 5: Dashboard page showing the car's predicted condition.</div>
         </div>
 
         <!-- Maintenance Page -->
-        <div class="content has-text-justified has-text-centered" style="margin-top: 2rem; margin-left:auto; margin-right:auto;">
-          <ul style="display:inline-block; text-align:left;">
+        <div class="content has-text-justified" style="margin-top: 2rem;">
+          <ul style="text-align:left; max-width: 100%; word-wrap: break-word;">
             <li>
               <strong>Maintenance Page:</strong> A calendar that suggests inspection dates. Users can accept or reject the suggestions. Accepted dates turn green for easy tracking.
             </li>
           </ul>
         </div>
         <div class="has-text-centered" style="margin-top: 2rem;">
-            <img src="images/maintenance.webp" alt="Maintenance Page" style="width: 100%; max-width: 600px; border-radius: 6px; max-height: 680px; object-fit: contain; margin-left:auto; margin-right:auto; display:block;">
+            <img src="images/maintenance.webp" alt="Maintenance Page" style="width: 400px; max-width: 80%; border-radius: 6px;">
             <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 6: Maintenance page with calendar and accepted inspection dates.</div>
         </div>
 
-        <div class="content has-text-justified has-text-centered" style="margin-top: 2rem;">
+        <div class="content has-text-justified" style="margin-top: 2rem;">
           <p>
             We tested the app and showed a full demo in class.
           </p>
         </div>
         <div class="has-text-centered" style="margin-top: 2rem;">
-            <video poster="images/demo.webp" controls muted loop preload="metadata">
+            <video poster="images/demo.webp" controls muted loop preload="metadata" style="width: 320px; max-width: 80%; border-radius: 6px;">
                 <source src="images/demo.mp4" type="video/mp4">
             </video>
           <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 7: Demo video of the app in action.</div>

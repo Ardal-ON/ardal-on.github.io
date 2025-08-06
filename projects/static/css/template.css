@@ -295,6 +295,110 @@ body {
   }
 }
 
+/* Extra small devices (320px and below) */
+@media (max-width: 320px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  .section {
+    padding: 2rem 0.5rem;
+  }
+  
+  .hero {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .hero-body {
+    padding: 1.5rem 0;
+  }
+  
+  .title.is-1 {
+    font-size: 1.75rem;
+  }
+  
+  .title.is-3 {
+    font-size: 1.25rem;
+  }
+  
+  .is-size-5 {
+    font-size: 1rem;
+  }
+  
+  /* Fix table overflow on very small screens */
+  table {
+    font-size: 0.875rem;
+  }
+  
+  th, td {
+    padding: 0.25rem 0.5rem !important;
+  }
+  
+  /* Ensure images don't overflow */
+  img, video {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Override inline styles for very small screens */
+  [style*="max-width: 600px"] {
+    max-width: 100% !important;
+  }
+  
+  [style*="flex: 1 1 320px"] {
+    flex: 1 1 250px !important;
+    max-width: 100% !important;
+  }
+  
+  /* Adjust carousel for very small screens */
+  .carousel-container {
+    padding: 0 20px;
+    min-height: 250px;
+  }
+  
+  .carousel-wrapper {
+    min-height: 200px;
+  }
+  
+  .carousel-slide video,
+  .carousel-slide img {
+    max-height: 250px;
+  }
+  
+  .carousel-btn {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+  
+  .carousel-btn.prev {
+    left: -20px;
+  }
+  
+  .carousel-btn.next {
+    right: -20px;
+  }
+  
+  /* Fix column layout for very small screens */
+  .columns {
+    margin: 0 -5px;
+  }
+  
+  .column {
+    padding: 0 5px;
+  }
+  
+  .is-four-fifths {
+    flex: none;
+    width: 100%;
+  }
+  
+  .is-8 {
+    flex: none;
+    width: 100%;
+  }
+}
+
 .carousel-btn {
   position: absolute;
   top: 50%;
