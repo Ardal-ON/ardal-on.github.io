@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Automotive Predictive Maintenance Application">
+  <meta name="keywords" content="Predictive Maintenance, Machine Learning, Automotive, Mobile Application">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ardalan Aryashad">
+
+  <title>Automotive Predictive Maintenance Application</title>
+  <link rel="icon" type="image/x-icon" href="../../images/favicon/favicon.ico">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../static/css/template.css">
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Automotive Predictive Maintenance Application</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://ardal-on.github.io" target="_blank">Ardalan Aryashad</a><sup></sup>,</span>
+              <span class="author-block non-link-author">
+                Sean Richard<sup></sup>,
+              </span>
+              <span class="author-block non-link-author">
+                Jian Ni<sup></sup>,
+              </span>
+              <span class="author-block non-link-author">
+                Junyi Wang
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">University of Southern California<br>AME 505: Engineering Information Modeling<br>Fall 2023</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+              <span class="link-block">
+                <a href="https://github.com/Ardal-ON/Application" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">💻</span>
+                <span>Code</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            What if your car could warn you before something goes wrong? In this project, we used real car sensor data and machine learning to predict engine problems early. We cleaned messy data, tested different models, and built a simple mobile app that gives drivers clear and helpful alerts about their car’s health.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project Details -->
+<section class="section hero">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Designing the Object Model: Engineering the System</h2>
+        <div class="content has-text-justified">
+          <p>
+            Every robust system starts with thoughtful design. In our project, that design took the form of an object-oriented model that mirrors how data flows in real vehicles. Before diving into machine learning, we focused on building a structured pipeline that could handle inputs, make predictions, and respond to user feedback.
+          </p>
+          <p>
+            We designed our object model around several core classes: Engine, Car, Sensor, and Predictor. The Sensor class was responsible for reading key engine parameters such as RPM, coolant temperature and pressure, oil temperature and pressure, and fuel pressure. These readings served as the input for our prediction system.
+          </p>
+          <p>
+            The Predictor class held the trained machine learning model. It accepted input from the sensors (in the form of VehicleData instances from the Dataset), handled internal pre-processing, and returned a health prediction. This modular approach ensured that if we later updated the pre-processing method or replaced the model, the rest of the system would continue working without changes.
+          </p>
+          <p>
+            We also modeled interactions with the car owner. A maintenance scheduler monitored prediction results and sent notifications to the user. It allowed users to accept or reject suggested maintenance times and updated the app interface based on their choices. This connection between backend logic and user interface made the system responsive, flexible, and user-friendly.
+          </p>
+        </div>
+        <!-- Image placeholder -->
+        <div class="has-text-centered" style="margin-top: 2rem;">
+          <img src="images/ObjectModel.webp" alt="Object Model Diagram" style="width: 80%; max-width: 100%; border-radius: 6px;">
+          <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 1: Object-oriented model of the predictive maintenance system</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Dirty Data: Preprocessing for Prediction</h2>
+        <div class="content has-text-justified">
+          <p>
+            Real world data is rarely clean, and our automotive dataset was no exception. With over 19,000 engine samples, we encountered the usual suspects: outliers, skewed distributions, and uneven scales. Left untreated, these issues would have seriously undermined the performance of any predictive model.
+          </p>
+          <p>
+            To tackle this, we began with outlier analysis using the Interquartile Range (IQR) method. For each feature - RPM, coolant temperature, etc. we computed the 25th (Q1) and 75th (Q3) percentiles. Any value falling below Q1 - 1.5×IQR or above Q3 + 1.5×IQR was flagged as an outlier. These extreme values were often the result of sensor errors or unrealistic operating conditions and were subsequently removed from the dataset.
+          </p>
+          <p>
+            But even after cleaning, we faced another challenge: feature scale imbalance. Some sensor readings spanned thousands of units (like RPM), while others were constrained to smaller ranges (like coolant temperature). To ensure no single feature dominated the model's learning process, we applied MinMax scaling using the MinMaxScaler from scikit-learn. This transformed all features to a 0 - 1 range, giving each equal weight in training.
+          </p>
+          <p>
+            This two-step pre-processing strategy—IQR-based outlier removal followed by MinMax normalization—formed the bedrock of our data pipeline. It leveled the playing field, allowing our models to detect meaningful patterns without being skewed by noisy or overpowered inputs.
+          </p>
+          <p>
+            The link to the dataset in <a href="https://www.kaggle.com/datasets/parvmodi/automotive-vehicles-engine-health-dataset/data" target="_blank">Kaggle</a>.
+          </p>
+        </div>
+        <!-- Image placeholder -->
+        <div class="has-text-centered" style="margin-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+          <div style="flex: 1 1 320px; max-width: 480px;">
+            <img src="images/data.webp" alt="Raw Data Distribution" style="width: 100%; max-width: 100%; border-radius: 6px;">
+            <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 2: Raw data before preprocessing</div>
+          </div>
+          <div style="flex: 1 1 320px; max-width: 480px;">
+            <img src="images/preprocessed.webp" alt="Preprocessed Data Distribution" style="width: 100%; max-width: 100%; border-radius: 6px;">
+            <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 3: Data after outlier removal and MinMax scaling</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Machine Learning Methods: Finding the Right Fit</h2>
+        <div class="content has-text-justified">
+          <p>
+            With clean data in hand, we turned our focus to modeling. But we didn’t want to rely on a single one. Instead, we used a comparative approach, testing six different machine learning classifiers; each with distinct strengths, weaknesses.
+          </p>
+          <p>
+            We began with Logistic Regression, our baseline model. It was fast, interpretable, and surprisingly competitive: achieving a training accuracy of 66.74% and a testing accuracy of 65.91%. Its simplicity made it a great diagnostic tool for spotting linearly separable relationships.
+          </p>
+          <p>
+            Next came the Decision Tree Classifier, which learned nonlinear patterns by recursively splitting features. It scored slightly better in training (68.95%) but dipped in testing (64.59%), a sign of mild overfitting. To address this, we tried the Random Forest Classifier, an ensemble of decision trees that averaged their outputs to reduce variance. This model achieved the highest training accuracy (79.33%) but saw only modest gains in testing (65.64%).
+          </p>
+          <p>
+            We also tested the k-Nearest Neighbors (k-NN) algorithm. While intuitive and simple, it struggled with the randomness in our data—overfitting to training samples (75.28%) but generalizing poorly (62.21%).
+          </p>
+          <p>
+            Interestingly, Gaussian Naive Bayes became the strongest model in our project. It assumed feature independence (which was not strictly true), but its probabilistic nature and low complexity gave it consistent performance: 67.09% training accuracy and 66.11% testing accuracy.
+          </p>
+          <p>
+            Finally, the Support Vector Machine (SVM) showed disappointing results, peaking at 64.88% training and 60.77% testing. Its sensitivity to hyperparameters like C and gamma, coupled with the high dimensionality of our feature space, likely hindered its performance.
+          </p>
+          <p>
+            In summary, every model taught us something about the data, about our assumptions, and about the tradeoff between complexity and generalization.
+          </p>
+        </div>
+        <div class="has-text-centered" style="margin-top: 2rem;">
+          <table style="margin: 0 auto; border-collapse: collapse; max-width: 600px; width: 100%;">
+            <thead>
+              <tr style="background-color: #f5f5f5;">
+                <th style="padding: 0.75rem 1rem; border-bottom: 2px solid #ccc; text-align: left;">Model</th>
+                <th style="padding: 0.75rem 1rem; border-bottom: 2px solid #ccc; text-align: center;">Training Accuracy</th>
+                <th style="padding: 0.75rem 1rem; border-bottom: 2px solid #ccc; text-align: center;">Testing Accuracy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #ffffff;">
+                <td style="padding: 0.5rem 1rem; border-bottom: 1px solid #eee; text-align: left;">Logistic Regression</td>
+                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">66.74%</td>
+                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">65.91%</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 0.5rem 1rem; border-bottom: 1px solid #eee; text-align: left;">Decision Tree Classifier</td>
+                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">68.95%</td>
+                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">64.59%</td>
+              </tr>
+              <tr style="background-color: #ffffff;">
+                <td style="padding: 0.5rem 1rem; border-bottom: 1px solid #eee; text-align: left;">Random Forest Classifier</td>
+                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;"><strong>79.33%</strong></td>
+                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">65.64%</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 0.5rem 1rem; border-bottom: 1px solid #eee; text-align: left;">K-Neighbors Classifier</td>
+                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">75.28%</td>
+                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">62.21%</td>
+              </tr>
+              <tr style="background-color: #ffffff;">
+                <td style="padding: 0.5rem 1rem; border-bottom: 1px solid #eee; text-align: left;"><strong>Gaussian Naive-Bayes</strong></td>
+                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;">67.09%</td>
+                <td style="padding: 0.5rem 1rem; text-align: center; border-bottom: 1px solid #eee;"><strong>66.11%</strong></td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 0.5rem 1rem; text-align: left;">Support Vector Machine</td>
+                <td style="padding: 0.5rem 1rem; text-align: center;">64.88%</td>
+                <td style="padding: 0.5rem 1rem; text-align: center;">60.77%</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="has-text-grey" style="margin-top: 0.5rem; font-size: 0.95em;">
+            Table 1: Training and testing accuracy of each machine learning model.
+          </div>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            While our modeling pipeline was sound, the results left room for improvement. Our top performing model (Gaussian Naive Bayes) topped out at 66.11% testing accuracy; respectable, but far from industry grade. Understanding this plateau became a project of its own.
+          </p>
+          <p>
+            One issue was data separability. Even after scaling, the difference between “healthy” and “faulty” classes was often subtle. Many samples had overlapping sensor profiles, suggesting either labeling inconsistencies or intrinsic ambiguity in real world engine faults. This made it hard for any classifier to draw clean boundaries.
+          </p>
+          <p>
+            Another challenge was feature dependency. Most models assumed feature independence or simple additive relationships, which may not capture the true causal mechanisms of engine behavior. Sequential models like LSTMs might perform better in future iterations by modeling temporal patterns.
+          </p>
+          <p>
+            In conclusion, the dataset itself was likely a limiting factor. Without access to richer sensor modalities (e.g., vibration, audio, or temporal sequences), our models were predicting health from snapshots rather than trends. This is a tough task, even for neural nets.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths" style="margin-left:auto; margin-right:auto;">
+        <h2 class="title is-3 has-text-centered">A Mobile-Friendly Dashboard</h2>
+        <div class="content has-text-justified has-text-centered" style="margin-left:auto; margin-right:auto;">
+          <p>
+            After building the prediction model, we needed to make it easy to use. So, we created a simple and clear user interface using <strong>Flet</strong>, a Python tool for making apps that work on Android, iOS, and desktop. This let us write one codebase that runs everywhere, matching our goal of keeping the app clean and easy to understand.
+          </p>
+          <p>
+            Car owners don’t need complex data and logs. They just need quick, clear answers. Our app delivers this with three main pages:
+          </p>
+        </div>
+
+        <!-- Home Page -->
+        <div class="content has-text-justified has-text-centered" style="margin-top: 2rem; margin-left:auto; margin-right:auto;">
+          <ul style="display:inline-block; text-align:left;">
+            <li>
+              <strong>Home Page:</strong> A welcome screen with general car info. Users can enter six engine values in dedicated boxes. There’s also a “Randomize” button to quickly test different inputs for demos.
+            </li>
+          </ul>
+        </div>
+        <!-- Image placeholder -->
+        <div class="content has-text-centered" style="margin-top: 2rem;">
+            <img src="images/home.webp" alt="Home Page" style="width: 100%; max-width: 600px; border-radius: 6px; max-height: 680px; object-fit: contain; margin-left:auto; margin-right:auto; display:block;">
+            <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 4: Home page for entering engine values and randomizing inputs.</div>
+        </div>
+
+        <!-- Dashboard Page -->
+        <div class="content has-text-justified has-text-centered" style="margin-top: 2rem; margin-left:auto; margin-right:auto;">
+          <ul style="display:inline-block; text-align:left;">
+            <li>
+              <strong>Dashboard Page:</strong> Shows the prediction result. The app tells users if their car’s condition is <span style="color:green;"><strong>Good</strong></span>, <span style="color:orange;"><strong>Poor</strong></span>, or <span style="color:red;"><strong>Bad</strong></span> using clear color labels.
+            </li>
+          </ul>
+        </div>
+        <!-- Image placeholder -->
+        <div class="has-text-centered" style="margin-top: 2rem;">
+            <img src="images/dashboard.webp" alt="Dashboard Page" style="width: 100%; max-width: 600px; border-radius: 6px; max-height: 680px; object-fit: contain; margin-left:auto; margin-right:auto; display:block;">
+            <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 5: Dashboard page showing the car’s predicted condition.</div>
+        </div>
+
+        <!-- Maintenance Page -->
+        <div class="content has-text-justified has-text-centered" style="margin-top: 2rem; margin-left:auto; margin-right:auto;">
+          <ul style="display:inline-block; text-align:left;">
+            <li>
+              <strong>Maintenance Page:</strong> A calendar that suggests inspection dates. Users can accept or reject the suggestions. Accepted dates turn green for easy tracking.
+            </li>
+          </ul>
+        </div>
+        <div class="has-text-centered" style="margin-top: 2rem;">
+            <img src="images/maintenance.webp" alt="Maintenance Page" style="width: 100%; max-width: 600px; border-radius: 6px; max-height: 680px; object-fit: contain; margin-left:auto; margin-right:auto; display:block;">
+            <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 6: Maintenance page with calendar and accepted inspection dates.</div>
+        </div>
+
+        <div class="content has-text-justified has-text-centered" style="margin-top: 2rem;">
+          <p>
+            We tested the app and showed a full demo in class.
+          </p>
+        </div>
+        <div class="has-text-centered" style="margin-top: 2rem;">
+            <video poster="images/demo.webp" controls muted loop preload="metadata">
+                <source src="images/demo.mp4" type="video/mp4">
+            </video>
+          <div class="has-text-grey" style="margin-top: 0.5rem;">Figure 7: Demo video of the app in action.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer" style="background-color: #ffffff;">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page was built using a modified version of the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> 
+            to improve loading speed and user experience. The source code for this modified template is available at 
+            <a href="https://github.com/Ardal-ON/ardal-on.github.io" target="_blank">GitHub</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- JavaScript -->
+<script src="../static/js/template.js"></script>
+
+</body>
+</html>
