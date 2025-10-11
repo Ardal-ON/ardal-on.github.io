@@ -8,6 +8,22 @@
     <meta name="description" content="Ardalan Aryashad - AME Ph.D student at USC">
     <meta name="google-site-verification" content="2QCf5jmwAgRIvFpXsBIJwLKzkk1A3DzyNGjce-mLu8o" />
     
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ardal-on.github.io/">
+    <meta property="og:title" content="Ardalan Aryashad - AME Ph.D Student at USC">
+    <meta property="og:description" content="AME Ph.D student at USC working on vision-language-action models and robotic task planning">
+    <meta property="og:image" content="https://ardal-on.github.io/images/ardalan.webp">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ardalan Aryashad">
+    <meta name="twitter:description" content="AME Ph.D student at USC">
+    <meta name="twitter:image" content="https://ardal-on.github.io/images/ardalan.webp">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#ffffff">
+    
     <!-- Favicon -->
     <link rel="icon" href="images/favicon/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
@@ -15,144 +31,116 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
     <link rel="manifest" href="images/favicon/site.webmanifest">
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="images/ardalan.webp" as="image">
-    <link rel="preload" href="projects/biped/images/biped.webp" as="image">
-    <link rel="preload" href="projects/apm/images/dashboard.webp" as="image">
-    
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     
-    <style>
-      /* Inline critical CSS for faster loading */
-      .hoverZoomLink {
-        transition: transform 0.3s ease;
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ardalan Aryashad",
+      "url": "https://ardal-on.github.io",
+      "jobTitle": "Ph.D. Student",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of Southern California"
       }
-      .hoverZoomLink:hover {
-        transform: scale(1.05);
-      }
-      .project-image {
-        width: 160px;
-        height: 160px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 8px;
-      }
-
-    </style>
+    }
+    </script>
   </head>
 
   <body>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-      <tbody>
-        <tr style="padding:0px">
-          <td style="padding:0px">
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody>
-                <tr style="padding:0px">
-                  <td style="padding:2.5%;width:63%;vertical-align:middle">
-                    <p class="name" style="text-align: center;">
-                      Ardalan Aryashad
-                    </p>
-                    <p>I'm a second year AME Ph.D student at <a href="http://www.usc.edu/">USC</a> advised by Prof. <a href="https://viterbi.usc.edu/directory/faculty/Jin/Yan"> Yan Jin</a>.
-                        <br>
-                        I received my Bachelor's degree in Mechanical engineering from Sharif University of Technology in 2023.
-                    </p>
-                    <p>
-                      At Impact lab I'm currently working on vision-language-action models and their application on robotic's task plannig and manipulation.
-                    </p>
-                    <p style="text-align:center">
-                      <a href="mailto:aryashad@usc.edu">Email</a> &nbsp;/&nbsp;
-                      <a href="data/ardalan-CV.pdf">CV</a> &nbsp;/&nbsp;
-                      <a href="https://github.com/ardal-on">Github</a> &nbsp;/&nbsp;
-                      <a href="https://www.linkedin.com/in/aryashad/">LinkedIn</a>
-                    </p>
-                  </td>
-                  <td style="padding:2.5%;width:37%;max-width:37%;vertical-align:middle;">
-                    <a href="images/ardalan.webp">
-                      <img style="width:100%;max-width:100%;object-fit: cover; border-radius: 25%;" alt="profile photo" src="images/ardalan.webp" class="hoverZoomLink">
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody>
-                <tr>
-                  <td style="padding:16px;width:100%;vertical-align:middle">
-                    <h2>Selected Project</h2>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody>
-                <tr>
-                  <td style="padding:16px;width:20%;vertical-align:middle">
-                    <div class="project-image">
-                      <img src="projects/biped/images/biped.webp" width="160" alt="Biped Robot" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                  </td>
-                  <td style="padding:8px;width:80%;vertical-align:middle">
-                    <a href="projects/biped/">
-                      <span class="papertitle">A Walking Biped Robot</span>
-                    </a>
-                    <br>
-                    <strong>AME 556: Robotics</strong>
-                    <br>
-                    <em>Fall</em>, 2024
-                    <p></p>
-                    <p>
-                      A 2D biped robot model using MATLAB Simscape with MPC control for stable locomotion, including walking forward, backward, and stair climbing capabilities.
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody>
-                <tr>
-                  <td style="padding:16px;width:20%;vertical-align:middle">
-                    <div class="project-image">
-                      <img src="projects/apm/images/apm.webp" width="160" alt="Automotive Predictive Maintenance" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                  </td>
-                  <td style="padding:8px;width:80%;vertical-align:middle">
-                    <a href="projects/apm/">
-                       <span class="papertitle">Automotive Predictive Maintenance Application</span>
-                     </a>
-                     <br>
-                     <strong>AME 505: Engineering Information Modeling</strong>
-                     <br>
-                     <em>Fall</em>, 2023
-                     <p></p>
-                     <p>
-                       A machine learning application that uses real car sensor data to predict engine problems. Features data preprocessing, multiple ML models, and a mobile-friendly dashboard built with Flet.
-                     </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            
-            <!-- Footer with credits -->
-            <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody>
-                <tr>
-                  <td style="padding:20px;width:100%;vertical-align:middle;text-align:center;border-top:1px solid #eaeaea;">
-                    <p style="margin:0;font-size:14px;color:#666;">
-                      Template based on <a href="https://jonbarron.info/" style="color:#0066cc;text-decoration:none;">Jon Barron's academic website</a>.
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
+    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr style="padding:0px">
+              <td style="padding:2.5%;width:63%;vertical-align:middle">
+                <p class="name" style="text-align:center;">
+                  Ardalan Aryashad
+                </p>
+                <p>I'm a second year AME Ph.D student at <a href="http://www.usc.edu/">USC</a> advised by Prof. <a href="https://viterbi.usc.edu/directory/faculty/Jin/Yan">Yan Jin</a>.
+                  I received my Bachelor's degree in Mechanical engineering from Sharif University of Technology in 2023.
+                  At Impact lab I'm currently working on vision-language-action models and their application on robotic's task planning and manipulation.
+                </p>
+                <p style="text-align:center">
+                  <a href="mailto:aryashad@usc.edu">Email</a> &nbsp;/&nbsp;
+                  <a href="data/ardalan-CV.pdf">CV</a> &nbsp;/&nbsp;
+                  <a href="https://scholar.google.com/citations?user=o3tM_3oAAAAJ" target="_blank">Scholar</a> &nbsp;/&nbsp;
+                  <a href="https://www.linkedin.com/in/aryashad/">LinkedIn</a> &nbsp;/&nbsp
+                  <a href="https://github.com/ardal-on">Github</a>
+                </p>
+              </td>
+              <td style="padding:2.5%;width:40%;max-width:40%">
+                <a href="images/ardalan.webp"><img style="width:100%;max-width:100%;border-radius:50%;" alt="profile photo" src="images/ardalan.webp" class="hoverZoomLink"></a>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>Selected Projects</h2>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+            <tr>
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <img src='projects/biped/images/biped.webp' width="160">
+                </div>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="projects/biped/">
+                  <span class="papertitle">A Walking Biped Robot</span>
+                </a>
+                <br>
+                <strong>AME 556: Robotics</strong>
+                <br>
+                <em>Fall</em>, 2024
+                <p></p>
+                <p>
+                  A 2D biped robot model using MATLAB Simscape with MPC control for stable locomotion, including walking forward, backward, and stair climbing capabilities.
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <img src='projects/apm/images/apm.webp' width="160">
+                </div>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="projects/apm/">
+                  <span class="papertitle">Automotive Predictive Maintenance Application</span>
+                </a>
+                <br>
+                <strong>AME 505: Engineering Information Modeling</strong>
+                <br>
+                <em>Fall</em>, 2023
+                <p></p>
+                <p>
+                  A machine learning application that uses real car sensor data to predict engine problems. Features data preprocessing, multiple ML models, and a mobile-friendly dashboard built with Flet.
+                </p>
+              </td>
+            </tr>
+
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:0px">
+                <br>
+                <p style="text-align:center;font-size:small;">
+                  Feel free to use this website's <a href="https://github.com/jonbarron/jonbarron_website">source code</a>, design courtesy of <a href="https://jonbarron.info/">Jon Barron</a>.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
     </table>
-
-
   </body>
 </html>
