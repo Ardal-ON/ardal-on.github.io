@@ -1,4 +1,20 @@
-/* Lightweight Template CSS - No external dependencies */
+/* Lightweight Template CSS - Minimal external dependencies */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap');
+
+:root {
+  --bg: #f7f8fb;
+  --surface: #ffffff;
+  --surface-muted: #f1f3f7;
+  --text: #111827;
+  --text-muted: #4b5563;
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --border: #e5e7eb;
+  --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.12);
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
 
 /* Reset and base styles */
 * {
@@ -6,19 +22,21 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: 'Manrope', 'Source Sans 3', 'Helvetica Neue', sans-serif;
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-weight: 500;
   margin: 0;
   padding: 0;
-  color: #1a1a1a;
+  color: var(--text);
+  background-color: var(--bg);
 }
 
 /* Container */
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 /* Grid system (simplified) */
@@ -55,23 +73,26 @@ body {
 
 /* Typography */
 .title {
-  font-weight: 700;
-  line-height: 1.125;
-  margin-bottom: 1.5rem;
+  font-family: 'Sora', 'Manrope', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.02em;
 }
 
 .title.is-1 {
-  font-size: 3rem;
+  font-size: 2.75rem;
 }
 
 .title.is-3 {
-  font-size: 2rem;
+  font-size: 1.9rem;
 }
 
 .subtitle {
-  font-weight: 400;
-  line-height: 1.25;
-  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
+  color: var(--text-muted);
 }
 
 .is-size-5 {
@@ -80,54 +101,53 @@ body {
 
 /* Hero sections */
 .hero {
-  padding: 3rem 0;
+  padding: 2.75rem 0;
 }
 
 .hero-body {
-  padding: 3rem 0;
+  padding: 2.75rem 0;
 }
 
 .hero.is-small .hero-body {
-  padding: 1.5rem 0;
+  padding: 1.5rem 0 2rem;
 }
 
-.hero.is-light {
-  background-color: #e8e8e8;
+section {
+  background-color: var(--surface);
+}
+
+section:nth-of-type(even) {
+  background-color: var(--surface-muted);
 }
 
 /* Section backgrounds - alternating colors */
 .section {
-  padding: 3rem 1.5rem;
+  padding: 3rem 0;
 }
 
-/* Video section - light background */
-.hero.is-small:nth-of-type(odd) {
-  background-color: #f0f0f0;
-}
-
-/* Figure section - white background */
-.hero.is-small:nth-of-type(even) {
-  background-color: #ffffff;
+section .title.is-3 {
+  text-align: center;
 }
 
 /* Publication styles */
 .publication-title {
-  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Sora', 'Manrope', 'Helvetica Neue', sans-serif;
 }
 
 .publication-authors {
-  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  margin-bottom: 1rem;
+  font-family: 'Manrope', 'Helvetica Neue', sans-serif;
+  margin-bottom: 0.35rem;
+  color: var(--text-muted);
 }
 
 .publication-authors a {
-  color: #2563eb;
+  color: var(--accent);
   text-decoration: none;
 }
 
 .publication-authors a:hover {
   text-decoration: underline;
-  color: #1d4ed8;
+  color: var(--accent-dark);
 }
 
 .author-block {
@@ -135,25 +155,26 @@ body {
 }
 
 .publication-links {
-  margin-top: 1rem;
+  margin-top: 0.6rem;
 }
 
 .link-block {
   display: inline-block;
-  margin: 0 0.5rem;
+  margin: 0 0.35rem 0.2rem;
 }
 
 /* Buttons */
 .button {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .button.is-normal {
@@ -161,16 +182,19 @@ body {
 }
 
 .button.is-rounded {
-  border-radius: 290486px;
+  border-radius: 999px;
 }
 
 .button.is-dark {
-  background-color: #1f2937;
+  background-color: #111827;
   color: #fff;
+  box-shadow: var(--shadow-sm);
 }
 
 .button.is-dark:hover {
-  background-color: #111827;
+  background-color: #0f172a;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .external-link {
@@ -184,20 +208,24 @@ body {
 /* Content */
 .content {
   margin-bottom: 1.5rem;
+  color: var(--text);
 }
 
 .content p {
   margin-bottom: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
 }
+
 
 /* Carousel styles */
 .carousel-container {
   position: relative;
-  max-width: 800px;
+  max-width: 860px;
   margin: 0 auto;
   overflow: visible;
-  padding: 0 60px;
-  height: auto; /* Remove fixed height to allow natural sizing */
+  padding: 0 56px;
+  height: auto;
   display: flex;
   flex-direction: column;
 }
@@ -208,7 +236,7 @@ body {
   flex: 1;
   align-items: center;
   justify-content: center;
-  min-height: 400px; /* Minimum height instead of fixed */
+  min-height: 360px;
 }
 
 .carousel-slide {
@@ -217,8 +245,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: auto; /* Allow natural height */
-  padding: 20px 0;
+  height: auto;
+  padding: 16px 0 8px;
 }
 
 .carousel-slide.active {
@@ -228,24 +256,29 @@ body {
 /* Video styling - maintain natural aspect ratio */
 .carousel-slide video {
   max-width: 100%;
-  max-height: 500px; /* Maximum height but don't force */
-  width: auto; /* Allow natural width */
-  height: auto; /* Allow natural height */
-  object-fit: contain; /* Maintain aspect ratio without cropping */
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  background-color: transparent; /* Remove black background */
+  max-height: 460px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  background-color: #ffffff;
+  padding: 8px;
 }
 
 /* Image styling - show full image without cropping */
 .carousel-slide img {
   max-width: 100%;
-  max-height: 500px; /* Maximum height but don't force */
-  width: auto; /* Allow natural width */
-  height: auto; /* Allow natural height */
-  object-fit: contain; /* Show full image without cropping */
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  max-height: 460px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  background-color: #ffffff;
+  padding: 8px;
 }
 
 /* Responsive adjustments for smaller screens */
@@ -403,21 +436,21 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.7);
+  background: #111827;
   color: white;
   border: none;
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 50%;
   font-size: 18px;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
   z-index: 10;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: var(--shadow-sm);
 }
 
 .carousel-btn:hover {
-  background: rgba(0,0,0,0.9);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  background: #0f172a;
+  box-shadow: var(--shadow-md);
 }
 
 .carousel-btn.prev {
@@ -442,10 +475,10 @@ body {
 
 .dot {
   display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin: 0 5px;
-  background-color: #d1d5db;
+  width: 10px;
+  height: 10px;
+  margin: 0 6px;
+  background-color: #cbd5f5;
   border-radius: 50%;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -454,15 +487,16 @@ body {
 
 .dot.active,
 .dot:hover {
-  background-color: #374151;
-  border-color: #1f2937;
+  background-color: var(--accent);
+  border-color: var(--accent-dark);
 }
 
 /* Footer */
 .footer {
-  background-color: #e8e8e8;
+  background-color: #f1f3f7;
   padding: 3rem 1.5rem;
-  margin-top: 3rem;
+  margin-top: 0;
+  font-size: 0.9rem;
 }
 
 .footer .content {
@@ -470,19 +504,19 @@ body {
 }
 
 .footer a {
-  color: #2563eb;
+  color: var(--accent);
   text-decoration: none;
 }
 
 .footer a:hover {
   text-decoration: underline;
-  color: #1d4ed8;
+  color: var(--accent-dark);
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
   .title.is-1 {
-    font-size: 2rem;
+    font-size: 2.1rem;
   }
   
   .title.is-3 {
@@ -498,7 +532,7 @@ body {
   }
   
   .carousel-container {
-    padding: 0 40px;
+    padding: 0 36px;
   }
   
   .carousel-btn {
