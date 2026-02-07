@@ -111,8 +111,44 @@ h2 {
 
 .one {
   width: 160px;
-  height: 160px;
   position: relative;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.one img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+/* Thumbnail look for publication/project images: rounded corners, thin border, subtle shadow */
+.item-table .one img {
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border: 1px solid transparent;
+  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+/* Hoverable thumbnail link: scale to 180px (1.125 × 160) on hover, click goes to project */
+.item-table .thumb-link {
+  display: block;
+}
+
+.item-table .thumb-link .one {
+  overflow: visible;
+}
+
+.item-table .thumb-link:hover .one img {
+  transform: scale(1.125);
+}
+
+.item-table tr > td {
+  vertical-align: middle;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }
 
 .two {
