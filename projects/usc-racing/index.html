@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="USC Racing suspension optimization and data acquisition systems.">
+  <meta name="keywords" content="USC Racing, Suspension, Telemetry">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ardalan Aryashad">
+
+  <title>USC Racing: Suspension and Telemetry</title>
+  <link rel="icon" type="image/x-icon" href="../../images/favicon/favicon.ico">
+
+  <link rel="stylesheet" href="../static/css/template.css">
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">USC Racing: Suspension and Data Acquisition</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Ardalan Aryashad</span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">USC Racing Team</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <span class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">🏁</span>
+                    <span>Top 10 Design (FSAE Michigan)</span>
+                  </span>
+                </span>
+                <span class="link-block">
+                  <span class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">🥉</span>
+                    <span>3rd in Autocross (FSAE Michigan)</span>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              I joined USC Racing in Fall 2024 as a suspension member and co-founded the DAQ effort in Fall 2025.
+              My work spans hands-on chassis fabrication, suspension optimization, and building the data infrastructure
+              and tools that make vehicle logs accessible and useful across subteams.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Suspension (Fall 2024)</h2>
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <div class="content has-text-justified">
+              <p>
+                I helped manufacture the rolling chassis by working on the lathe, welding, and assembling the suspension.
+                In parallel, I ran an optimization study for grip using a quarter-car model and genetic algorithm tuning to
+                balance road contact and ride dynamics.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-container">
+          <div class="carousel-wrapper">
+            <div class="carousel-slide active">
+              <img src="images/Suspension%20Grip%20optimzation.webp" alt="Suspension optimization results" loading="lazy"/>
+              <h2 class="subtitle has-text-centered">Grip force optimization for Quarter-car model</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">DAQ (Fall 2025)</h2>
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <div class="content has-text-justified">
+              <p>
+                Co-founded the DAQ effort and designed, built, and tested a NAS system to improve workflow and
+                accessibility of car log files across subteams. I created multiple telemetry and data analysis pages
+                in MoTeC i2 for different teams, and developed a web application to record setup sheets and inject
+                the values into i2 and log files for post-test analysis and long-term evaluation.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-container">
+          <div class="carousel-wrapper">
+            <div class="carousel-slide active">
+              <img src="images/Nas%20System%20Design.webp" alt="NAS system design" loading="lazy"/>
+              <h2 class="subtitle has-text-centered">NAS system design for log accessibility</h2>
+            </div>
+            <div class="carousel-slide">
+              <img src="images/Motec%20I2%20Telemetry%20Aero%20CP.webp" alt="Motec telemetry aero dashboard" loading="lazy"/>
+              <h2 class="subtitle has-text-centered">Aero performance dashboard</h2>
+            </div>
+            <div class="carousel-slide">
+              <img src="images/Motec%20I2%20Telemetry%20Powertrain.webp" alt="Motec telemetry powertrain dashboard" loading="lazy"/>
+              <h2 class="subtitle has-text-centered">Powertrain analysis dashboard</h2>
+            </div>
+            <div class="carousel-slide">
+              <img src="images/Motec%20I2%20Telemetry%20Suspension.webp" alt="Motec telemetry suspension dashboard" loading="lazy"/>
+              <h2 class="subtitle has-text-centered">Suspension telemetry dashboard</h2>
+            </div>
+          </div>
+          <button class="carousel-btn prev" onclick="changeSlide(-1, 1)">❮</button>
+          <button class="carousel-btn next" onclick="changeSlide(1, 1)">❯</button>
+          <div class="carousel-dots">
+            <span class="dot active" onclick="currentSlide(1, 1)"></span>
+            <span class="dot" onclick="currentSlide(2, 1)"></span>
+            <span class="dot" onclick="currentSlide(3, 1)"></span>
+            <span class="dot" onclick="currentSlide(4, 1)"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using a modified version of the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>
+              to improve loading speed and user experience. The source code for this modified template is available at
+              <a href="https://github.com/Ardal-ON/ardal-on.github.io" target="_blank" rel="noopener">GitHub</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../static/js/template.js"></script>
+
+</body>
+</html>
