@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="VLAG: Graph-based planning for vision-language-action models in long-horizon manipulation tasks.">
+  <meta name="keywords" content="Vision-Language-Action, Robotics, Graph Planner">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ardalan Aryashad">
+
+  <title>VLAG: Graph-Based VLA Planning</title>
+  <link rel="icon" type="image/x-icon" href="../../images/favicon/favicon.ico">
+
+  <link rel="stylesheet" href="../static/css/template.css">
+
+  <link rel="preload" href="images/VLAG.mp4" as="video">
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">VLAG: Graph-Based Planning for Vision-Language-Action Models</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Ardalan Aryashad,</span>
+              <span class="author-block">Yan Jin</span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">USC IMPACT Laboratory<br>IDETC/CIE 2025</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://doi.org/10.1115/DETC2025-169527" target="_blank" rel="noopener"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">📄</span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <span class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">💻</span>
+                  <span>Code (Coming soon)</span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              We present a novel framework, Graph-Based Routing for Mixture of Vision-Language-Action Experts,
+              designed for long-horizon robotic manipulation tasks. Our approach employs a Mixture of Experts
+              (MoE) architecture that integrates a graph-based router with dedicated vision, language, and a
+              set of action expert modules, enabling robust and efficient task planning and execution. The graph
+              planner functions as a high-level router that interprets visual observations and language instructions
+              to dynamically select the appropriate action expert for the current task. Specifically, our framework
+              leverages a vision model with a MLP head to extract key environmental features from observation. The
+              language model is fine-tuned from a pre-trained model to enhance instruction-to-task pairing accuracy,
+              thus ensuring reliable and robust task recognition. The action experts are built on the Action Chunking
+              with Transformers (ACT) architecture, modified to accommodate the vision and language modalities. The
+              graph router is crucial to the framework’s functionality as it coordinates the strengths of the vision,
+              language, and action experts, leading to a system that is both adaptable and computationally efficient.
+              Overall, the modular design enables the flexible integration of its components, providing a scalable
+              solution for robotic manipulation tasks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">System Overview</h2>
+            <div class="content">
+              <p>
+                VLAG is a modular Mixture of Experts framework where a graph-based router interprets visual observations and language instructions, maps the current environmental
+                state to graph nodes, and selects the appropriate action expert for each sub-task along a long-horizon sequence. The router encodes state transitions as directed edges,
+                while the vision module (CLIP + MLP) extracts key element states, the language module (fine-tuned SBERT) aligns instructions to tasks, and ACT-based action experts
+                execute specialized control policies; together, this design improves task selection, planning flexibility, and real-time action frequency.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-container">
+          <div class="carousel-wrapper">
+            <div class="carousel-slide active">
+              <img src="images/VLAG%20component%20and%20pipline.webp" alt="VLAG components and inference pipeline" loading="lazy"/>
+              <h2 class="subtitle has-text-centered">Graph planner with vision, language, and action modules</h2>
+            </div>
+            <div class="carousel-slide">
+              <img src="images/Vision%20Module%20Structure.webp" alt="Vision model structure" loading="lazy"/>
+              <h2 class="subtitle has-text-centered">Vision module for key element state prediction</h2>
+            </div>
+            <div class="carousel-slide">
+              <img src="images/Graph%20structure%20example.webp" alt="Example graph structure" loading="lazy"/>
+              <h2 class="subtitle has-text-centered">Graph representation of task transitions</h2>
+            </div>
+            <div class="carousel-slide">
+              <img src="images/ACT%20Structure%20.webp" alt="Action model structure" loading="lazy"/>
+              <h2 class="subtitle has-text-centered">ACT-based model for action module</h2>
+            </div>
+          </div>
+          <button class="carousel-btn prev" onclick="changeSlide(-1, 0)">❮</button>
+          <button class="carousel-btn next" onclick="changeSlide(1, 0)">❯</button>
+          <div class="carousel-dots">
+            <span class="dot active" onclick="currentSlide(1, 0)"></span>
+            <span class="dot" onclick="currentSlide(2, 0)"></span>
+            <span class="dot" onclick="currentSlide(3, 0)"></span>
+            <span class="dot" onclick="currentSlide(4, 0)"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Results</h2>
+          <div class="content">
+            <p>
+              On CALVIN D→D, the vision module trained for 2k epochs with a CLIP (ViT-B/32) encoder and MLP heads predicts
+              the four continuous key elements with under 5% average error and exceeds 98% accuracy on Boolean states, enabling
+              reliable graph routing from visual cues. For language, we built ~10k instruction-task pairs across 34 tasks, evaluated
+              CLIP and SBERT baselines, and fine-tuned paraphrase-MiniLM-L6-v2 with cosine similarity loss for 4 epochs, improving
+              instruction-to-task accuracy from 63.5% to 98.4% while removing sensitivity to underscore formatting.
+            </p>
+          </div>
+          <div class="carousel-container">
+            <div class="carousel-wrapper">
+              <div class="carousel-slide active">
+                <img src="images/vision%20module%20result%20table.webp" alt="Vision model results" loading="lazy"/>
+                <h2 class="subtitle has-text-centered">Vision model accuracy across key elements</h2>
+              </div>
+              <div class="carousel-slide">
+                <img src="images/Language%20model%20result%20table.webp" alt="Language model results" loading="lazy"/>
+                <h2 class="subtitle has-text-centered">Language model accuracy after fine-tuning</h2>
+              </div>
+            </div>
+            <button class="carousel-btn prev" onclick="changeSlide(-1, 1)">❮</button>
+            <button class="carousel-btn next" onclick="changeSlide(1, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="currentSlide(1, 1)"></span>
+              <span class="dot" onclick="currentSlide(2, 1)"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Demo</h2>
+        <div class="carousel-container">
+          <div class="carousel-wrapper">
+            <div class="carousel-slide active">
+              <video poster="" controls muted loop preload="metadata">
+                <source src="images/VLAG.mp4" type="video/mp4">
+              </video>
+              <h2 class="subtitle has-text-centered">Long-horizon manipulation example</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using a modified version of the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>
+              to improve loading speed and user experience. The source code for this modified template is available at
+              <a href="https://github.com/Ardal-ON/ardal-on.github.io" target="_blank" rel="noopener">GitHub</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../static/js/template.js"></script>
+
+</body>
+</html>
