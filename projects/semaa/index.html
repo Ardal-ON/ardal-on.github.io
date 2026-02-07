@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="SEMAA: AI agent assistant for MBSE modeling tools.">
+  <meta name="keywords" content="MBSE, AI Agent, Systems Engineering">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ardalan Aryashad">
+
+  <title>SEMAA: AI Agent Assistant for MBSE</title>
+  <link rel="icon" type="image/x-icon" href="../../images/favicon/favicon.ico">
+
+  <link rel="stylesheet" href="../static/css/template.css">
+
+  <link rel="preload" href="images/Demo-MCP.mp4" as="video">
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">SEMAA: AI Agent Assistant for MBSE</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Ardalan Aryashad</span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">USC IMPACT Laboratory</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <span class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">📝</span>
+                    <span>Report (Coming soon)</span>
+                  </span>
+                </span>
+                <span class="link-block">
+                  <a href="https://semaa.site" target="_blank" rel="noopener"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">🌐</span>
+                  <span>semaa.site</span>
+                </a>
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              SEMAA is an AI agent assistant designed to support model-based systems engineering workflows.
+              The system integrates with Visual Paradigm as a plugin, adds diagram import and export tools,
+              and enables context-aware chat so the agent can reason about the current model state. We also
+              built our own plugin that acts as the MCP server for remote LibreChat servers at semma.site,
+              enabling web-based access for collaboration and review.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">System Design</h2>
+        <div class="carousel-container">
+          <div class="carousel-wrapper">
+            <div class="carousel-slide active">
+              <img src="images/Semaa%20System%20design.webp" alt="SEMAA system design" loading="lazy"/>
+              <h2 class="subtitle has-text-centered">Agent, parser, and diagram context pipeline</h2>
+            </div>
+          </div>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <div class="content has-text-justified">
+              <p>
+                The system connects a chat interface to a model interpreter that understands diagram context.
+                It supports exporting diagrams to text, reasoning over the current system state, and pushing
+                updates back into the modeling tool to accelerate MBSE workflows.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3">Demo</h2>
+        <div class="carousel-container">
+          <div class="carousel-wrapper">
+            <div class="carousel-slide active">
+              <video poster="" controls muted loop preload="metadata">
+                <source src="images/Demo-MCP.mp4" type="video/mp4">
+              </video>
+              <h2 class="subtitle has-text-centered">Interactive agent workflow</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using a modified version of the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>
+              to improve loading speed and user experience. The source code for this modified template is available at
+              <a href="https://github.com/Ardal-ON/ardal-on.github.io" target="_blank" rel="noopener">GitHub</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../static/js/template.js"></script>
+
+</body>
+</html>
