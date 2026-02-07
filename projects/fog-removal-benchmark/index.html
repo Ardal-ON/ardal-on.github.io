@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Fog removal benchmarking through downstream task performance.">
+  <meta name="keywords" content="Fog Removal, Benchmark, Vision">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ardalan Aryashad">
+
+  <title>Fog Removal Benchmark</title>
+  <link rel="icon" type="image/x-icon" href="../../images/favicon/favicon.ico">
+
+  <link rel="stylesheet" href="../static/css/template.css">
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Fog Removal Benchmark</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Ardalan Aryashad</span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">WACV Workshop</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://aradfir.github.io/filters-to-vlms-defogging-page/" target="_blank" rel="noopener"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">🌫️</span>
+                  <span>Project Page</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              This benchmark evaluates defogging methods by how much they improve downstream vision tasks
+              such as object detection and segmentation. The study compares performance across synthetic
+              and real-world datasets to reveal gaps in generalization when models trained on synthetic data
+              are applied to real scenes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Key Findings</h2>
+          <div class="content">
+            <p>
+              The benchmark tests roughly 30 defogging pipelines on Cityscapes (synthetic) and ACDC (real)
+              datasets. Results show that improvements on synthetic data often fail to transfer to real-world
+              conditions, emphasizing the need for evaluation based on downstream task performance rather
+              than visual quality alone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using a modified version of the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>
+              to improve loading speed and user experience. The source code for this modified template is available at
+              <a href="https://github.com/Ardal-ON/ardal-on.github.io" target="_blank" rel="noopener">GitHub</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../static/js/template.js"></script>
+
+</body>
+</html>
