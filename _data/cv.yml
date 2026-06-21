@@ -1,0 +1,126 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Ardalan Aryashad
+    - name: Email
+      value: aryashad@usc.edu
+    - name: Phone
+      value: (213) 551-5016
+    - name: Languages
+      value: English, Persian
+
+- title: Education
+  type: time_table
+  contents:
+    - title: Ph.D. in Mechanical Engineering
+      institution: University of Southern California, Los Angeles, CA
+      year: Aug 2023 – present
+      description:
+        - "GPA: 3.88 / 4.0"
+        - Advisor — Prof. Yan Jin, IMPACT Laboratory
+        - Focus on vision-language-action models, robotic task planning, and agentic AI for MBSE
+    - title: M.Sc. in Computer Science
+      institution: University of Southern California, Los Angeles, CA
+      year: Jan 2026 – present
+      description:
+        - "GPA: 3.88 / 4.0"
+    - title: B.Sc. in Mechanical Engineering
+      institution: Sharif University of Technology, Tehran, Iran
+      year: Sept 2018 – Aug 2023
+      description:
+        - "GPA: 18.18 / 20.0"
+
+- title: Research Experience
+  type: time_table
+  contents:
+    - title: Research Assistant
+      institution: IMPACT Laboratory, University of Southern California
+      year: Aug 2023 – present
+      description:
+        - Developed a graph-based planning framework for vision-language-action (VLA) models in long-horizon manipulation tasks.
+        - Trained a high-accuracy vision model using CLIP features, achieving 95% accuracy on environmental key state prediction.
+        - Fine-tuned a sentence transformer model to reach 98% instruction-to-task matching accuracy.
+        - Trained a Transformer-based action model operating from vision and language inputs; validated on the CALVIN dataset.
+        - Designed single and multi-agent workflows for mechanical systems engineering and MBSE modeler tasks.
+        - Created a Visual Paradigm plugin to auto-generate SysML diagrams using a custom LLM agent.
+        - Initiated a benchmark dataset to evaluate LLMs on SysML diagram design tasks.
+        - Implemented a text extraction pipeline and integrated outputs into a RAG system for the agent.
+    - title: Research Assistant
+      institution: Micro-Nano Systems Lab, Sharif University of Technology
+      year: Aug 2022 – June 2023
+      description:
+        - Conducted system identification experiments on a PCR microsystem prior to controller design.
+        - Designed a two-degree-of-freedom PID controller, reducing settling time by 17% and eliminating overshoot.
+        - Trained a neural network predictive model and implemented it in a Model Predictive Control (MPC) framework.
+        - Designed and simulated the MPC in MATLAB/Simulink and executed it on a Raspberry Pi.
+    - title: Research Assistant
+      institution: Experimental Solid Mechanics and Manufacturing Lab (ESMML), Sharif University of Technology
+      year: Sept 2021 – June 2022
+      description:
+        - Reviewed literature to identify essential parameters for pipe material selection in water networks.
+        - Conducted surveys and interviews with design engineers to rank design parameters.
+        - Researched, modeled, and simulated surge pressure phenomena using FEM in Iranian PE pipes.
+
+- title: Professional Experience
+  type: time_table
+  contents:
+    - title: Student Intern
+      institution: Automotive Industries Research & Innovation Center of SAIPA (AIRIC)
+      year: June 2021 – Aug 2021
+      description:
+        - Researched and simulated regenerative braking performance for Saipa Shahin on a standardized test track.
+        - Developed a script to convert Google Maps data into simulation-compatible road profile formats.
+        - Simulated regenerative braking across multiple real-world routes and analyzed performance metrics.
+    - title: Student Intern
+      institution: Industrial Saipa Heavy Dies Manufacturing
+      year: June 2020 – Aug 2020
+      description:
+        - Supported maintenance department operations.
+        - Developed an Excel-based preventive maintenance schedule.
+        - Built a web-based maintenance request system to improve department workflow.
+
+- title: Honors and Awards
+  type: time_table
+  contents:
+    - year: 2023
+      items:
+        - Andrew and Erna Viterbi Graduate Student Fellowship, Department of Aerospace & Mechanical Engineering, USC
+    - year: 2022
+      items:
+        - Best Teaching Assistant in Mechanical Engineering Department, voted by students, Sharif University of Technology
+    - year: 2019
+      items:
+        - Ranked 146th out of 144,000 students in the National University Entrance Exam, Mathematics branch, Iran
+
+- title: Volunteer Experience
+  type: time_table
+  contents:
+    - title: Peer Reviewer
+      institution: IDETC-CIE, WACV, International Journal of Computer Integrated Manufacturing
+      year: 2024 – present
+    - title: Teaching Assistant
+      institution: Mechanical Engineering Department, Sharif University of Technology
+      year: 2020 – 2023
+      description:
+        - Applied Finite Element, Control Design, Mechanical Design, Embedded Systems, Dynamics, and Statics courses.
+    - title: Mentor
+      institution: IMPACT Laboratory, University of Southern California
+      year: 2024 – present
+      description:
+        - Mentored students on implementing a Retrieval-Augmented Generation (RAG) module for an AI Agent assistant.
+        - Guided students in hyperparameter optimization studies for robotic manipulation policies.
+        - Led a team collecting a dataset of engineering diagrams and UML code for ME concepts.
+
+- title: Skills
+  type: nested_list
+  contents:
+    - title: Software
+      items:
+        - Matlab, Simulink, Simscape, SolidWorks, Abaqus, NX, Ansys, Proteus, Cursor
+    - title: Programming Languages & Tools
+      items:
+        - Python (PyTorch, MuJoCo, PyBullet, lerobot), C/C++, Linux, Git, AWS, Slurm
+    - title: Prototyping & Hardware
+      items:
+        - Arduino, Raspberry Pi, 3D Printing, Lathe, Soldering, Serial Communication, Servo/Stepper Motor Control
