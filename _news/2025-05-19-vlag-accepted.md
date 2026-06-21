@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2025-05-19 09:00:00-0700
+inline: true
+related_posts: false
+---
+
+[**VLAG**](/projects/vlag/) accepted to [ASME IDETC/CIE 2025](https://doi.org/10.1115/DETC2025-169527).
