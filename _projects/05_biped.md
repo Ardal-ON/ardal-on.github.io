@@ -75,19 +75,20 @@ The thing nobody tells you about the final project is that you've been building 
       <line x1="430" y1="44" x2="430" y2="68" stroke="var(--global-theme-color)" stroke-width="1.6" marker-end="url(#arrhw)"/>
       <line x1="595" y1="70" x2="500" y2="46" stroke="var(--global-text-color-light)" stroke-width="1.2" stroke-dasharray="3 3"/>
     </g>
+
   </svg>
   <p style="text-align:center; font-size:0.85rem; color:var(--global-text-color-light); margin-top:0.5rem;">The semester, read as one long build-up. HW4 — LQR and an MPC written as a quadratic program solved with <code>quadprog</code> — is the piece the project leans on most directly; the report literally says "since it is similar to our homework, we skip the details."</p>
 </div>
 
 **HW1** was pure geometry — rotating triangles in MATLAB, stacking rotation matrices, chaining homogeneous transforms to find where the end of a limb lands. It felt abstract at the time. In the project, that's the exact math (`rot2D(theta)·rot2D(q1)·…`) that locates each foot in the world so the controller knows where contact is.
 
-**HW2** was where things started moving: writing equations of motion by hand and integrating them with `ode45` — a ball with drag, an inverted pendulum, a UAV. This is the habit of *modeling first* that the whole project rests on.
+**HW2** was where things started moving: writing equations of motion by hand and integrating them with `ode45` — a ball with drag, an inverted pendulum, a UAV. This is the habit of _modeling first_ that the whole project rests on.
 
 **HW3** introduced the linear inverted pendulum model and dropped us into MATLAB Simscape with real contact and gravity — the same simulation environment the biped lives in. The inverted pendulum, it turns out, is the entire intuition for balancing a walking robot: keep the center of mass over a moving support point.
 
 **HW4** is the one that mattered most. We built an LQR controller, then re-derived an MPC as a quadratic program — stacking the prediction horizon into big block matrices with Kronecker products and handing it to `quadprog` under state and input constraints. That code is, almost verbatim, the brain of the biped.
 
-**HW5** went nonlinear — input–output (feedback) linearization and a CLF-QP controller — which is the language for reasoning about *why* a constrained controller stays stable when the dynamics aren't linear at all.
+**HW5** went nonlinear — input–output (feedback) linearization and a CLF-QP controller — which is the language for reasoning about _why_ a constrained controller stays stable when the dynamics aren't linear at all.
 
 Five homeworks, one robot. Seeing that arc only in hindsight is one of my favorite things about the class.
 
@@ -95,7 +96,7 @@ Five homeworks, one robot. Seeing that arc only in hindsight is one of my favori
 
 The robot itself is deliberately simple: a 2D body with two legs, each leg a hip and a knee (joints $q_1,q_2$ on the left, $q_3,q_4$ on the right), point feet, built in Simscape so that gravity, ground contact, and friction are all real physics rather than something we hand-wave.
 
-What I find genuinely elegant is that **every task on this page runs the same controller.** We never wrote a "walk" mode and a "run" mode and a "stairs" mode. We wrote one optimization-based controller and changed its *desired trajectory* and *gait schedule* — that's it.
+What I find genuinely elegant is that **every task on this page runs the same controller.** We never wrote a "walk" mode and a "run" mode and a "stairs" mode. We wrote one optimization-based controller and changed its _desired trajectory_ and _gait schedule_ — that's it.
 
 <div style="margin: 2rem 0;">
   <svg viewBox="0 0 880 360" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; font-family:inherit;">
@@ -149,13 +150,14 @@ What I find genuinely elegant is that **every task on this page runs the same co
     <line x1="700" y1="240" x2="700" y2="283" stroke="var(--global-theme-color)" stroke-width="1.6" marker-end="url(#arrc)"/>
     <path d="M700 340 q-660 30 -640 -240" fill="none" stroke="var(--global-text-color-light)" stroke-width="1.3" stroke-dasharray="4 4" marker-end="url(#arrc)"/>
     <text x="360" y="356" fill="var(--global-text-color-light)" font-size="10.5">state feedback (x, q, velocities) every 40 ms</text>
+
   </svg>
   <p style="text-align:center; font-size:0.85rem; color:var(--global-text-color-light); margin-top:0.5rem;">The control architecture. The gait schedule decides, at each instant, which leg is on the ground (stance) and which is in the air (swing). Stance legs get their ground-reaction forces from the MPC; swing legs get a force from a PD law that steers the foot to its next landing spot. A Jacobian transpose turns both into joint torques. Changing the desired trajectory and the gait timing is the only thing that separates "walk" from "run" from "climb."</p>
 </div>
 
 The MPC plans over a short horizon on a **single-rigid-body model** of the body — position $x$, height $y$, pitch $\theta$, their velocities, plus a gravity term — and treats the foot **ground-reaction forces as the decision variables.** Every cycle it solves a quadratic program (the HW4 machinery) for the forces that best track the desired body motion, subject to honest constraints: forces can only push, never pull, and they have to stay inside the friction cone (we used a 0.7 friction coefficient) and under a 250 N cap. We weighted the cost heavily toward keeping height and pitch ($Q$ on $y$ and $\theta$ at 5000 and 3000) because a biped that loses its pitch falls over instantly.
 
-The leg that's *off* the ground doesn't get a force from the MPC — it gets steered by a small PD controller to a target foot position computed from a capture-point–style law (step out in the direction you're already moving, by half a step's worth, and correct toward the desired speed). That single split — stance handled by optimization, swing handled by PD — is the whole trick.
+The leg that's _off_ the ground doesn't get a force from the MPC — it gets steered by a small PD controller to a target foot position computed from a capture-point–style law (step out in the direction you're already moving, by half a step's worth, and correct toward the desired speed). That single split — stance handled by optimization, swing handled by PD — is the whole trick.
 
 ## Teaching it to walk
 
@@ -176,7 +178,7 @@ Standing came first: hold the body at 0.45 m, then command the height up to 0.5 
   </div>
 </div>
 
-Backward walking taught us a small but stubborn lesson: it needed *more time standing still before it could start.* The robot had to fully settle into a stable stance before reversing, otherwise the first backward step would catch it mid-wobble and throw the pitch off. That extra second and a half of "do nothing" at the start was the difference between a clean −0.73 m/s gait and a faceplant.
+Backward walking taught us a small but stubborn lesson: it needed _more time standing still before it could start._ The robot had to fully settle into a stable stance before reversing, otherwise the first backward step would catch it mid-wobble and throw the pitch off. That extra second and a half of "do nothing" at the start was the difference between a clean −0.73 m/s gait and a faceplant.
 
 {% include figure.liquid path="projects/biped/images/1.webp" alt="Body and joint state trajectories for walking forward" caption="Walking forward, body and joint states. The body position climbs steadily (left) while pitch stays bounded; the joint torques (bottom right) stay inside their saturation limits the whole time — the constraint-handling from Task 1 paying off." class="img-fluid rounded" %}
 
@@ -208,18 +210,18 @@ On flat ground, gait scheduling is forgiving — the floor is always at the same
 
 - **The 40 ms MPC clock was too slow for the legs.** The PD swing controller, running at the same 40 ms as the MPC, lagged badly enough that the foot would already be colliding with a stair before the controller reacted. We split the rates — **PD swing at 10 ms, MPC still at 40 ms** — and the foot finally tracked its target in time.
 - **A sine-wave foot path doesn't clear a stair; a square wave does.** The smooth sinusoidal swing arc we used for walking would clip the corner of the step. Switching the desired vertical foot motion to a **square wave** — snap up, hold high, snap down — gave the clearance to get over each riser.
-- **We tried throwing away the gait schedule entirely.** One experiment replaced timed stepping with *torque/contact sensing*: AND/OR-gate logic in Simulink that detected when a foot actually touched a stair, so we wouldn't have to hand-time the steps. It removed the painful timing problem — but it created a worse one. Contact detection was now out of sync with the MPC, so a foot would land and then *wait up to 40 ms* for the next MPC solve before getting any force, and in that gap it would slip. We went back to gait scheduling.
+- **We tried throwing away the gait schedule entirely.** One experiment replaced timed stepping with _torque/contact sensing_: AND/OR-gate logic in Simulink that detected when a foot actually touched a stair, so we wouldn't have to hand-time the steps. It removed the painful timing problem — but it created a worse one. Contact detection was now out of sync with the MPC, so a foot would land and then _wait up to 40 ms_ for the next MPC solve before getting any force, and in that gap it would slip. We went back to gait scheduling.
 - **The two legs needed different gains.** One leg consistently lagged the other, building up more tracking error, which kept tripping the speed and torque limits. We ended up tuning the left and right legs separately — slightly higher derivative gains on the lagging leg — which is exactly the kind of asymmetric, un-pretty fix you only find by staring at why one specific foot keeps violating a constraint.
 
-The payoff: five stairs in **1.79 seconds**. Less elegant than the flat-ground gaits, but it's the task where I actually understood *why* the textbook controller wasn't enough and what it takes to bridge from a clean model to messy contact.
+The payoff: five stairs in **1.79 seconds**. Less elegant than the flat-ground gaits, but it's the task where I actually understood _why_ the textbook controller wasn't enough and what it takes to bridge from a clean model to messy contact.
 
 {% include figure.liquid path="projects/biped/images/4.webp" alt="Body and joint state trajectories for stair climbing" caption="Stair climbing. The y-position (top middle) steps upward as the robot gains each stair, tracking the dotted desired profile. The torque trace (bottom right) is far busier than the flat-ground tasks — the cost of fighting contact on every step." class="img-fluid rounded" %}
 
 ## The task we didn't finish
 
-I want to be honest about Task 5, the obstacle course, because the report says it plainly: *"could not complete the task, but made progress."* We ran out of semester.
+I want to be honest about Task 5, the obstacle course, because the report says it plainly: _"could not complete the task, but made progress."_ We ran out of semester.
 
-The course needed **jumping**, and a jump is a genuinely different beast from a step. A walking gait always has one foot down; a jump needs both feet to push together, then a **flight phase where neither foot touches anything**, then a two-foot landing — a gait cycle like `[1 1 1 0 0 0 0 0 1 1]` for *both* legs at once instead of the alternating pattern that does everything else. We worked out the flight-phase foot-placement law (keep each foot trailing the center of mass at a fixed offset so it's positioned to catch the landing) and the gait structure, but we didn't get a reliable jump-land-continue working before the deadline.
+The course needed **jumping**, and a jump is a genuinely different beast from a step. A walking gait always has one foot down; a jump needs both feet to push together, then a **flight phase where neither foot touches anything**, then a two-foot landing — a gait cycle like `[1 1 1 0 0 0 0 0 1 1]` for _both_ legs at once instead of the alternating pattern that does everything else. We worked out the flight-phase foot-placement law (keep each foot trailing the center of mass at a fixed offset so it's positioned to catch the landing) and the gait structure, but we didn't get a reliable jump-land-continue working before the deadline.
 
 It cost us the points — our total landed at **73** — and I'd rather show that than pretend the project was a clean sweep. Knowing exactly where it broke (the transition into and out of flight, where the MPC briefly has no contact forces to command at all) is its own kind of result.
 
@@ -229,8 +231,8 @@ The honest takeaway isn't any single controller. It's that I came into AME 556 t
 
 Three things stuck with me hardest:
 
-- **A model is a choice, and the right model is small.** The MPC doesn't reason about the legs at all — it pretends the robot is one rigid body and lets the legs be force vectors. That deliberate simplification is what makes the QP small enough to solve every 40 ms. Knowing *what to ignore* turned out to be more important than modeling everything.
+- **A model is a choice, and the right model is small.** The MPC doesn't reason about the legs at all — it pretends the robot is one rigid body and lets the legs be force vectors. That deliberate simplification is what makes the QP small enough to solve every 40 ms. Knowing _what to ignore_ turned out to be more important than modeling everything.
 - **Constraints are where the physics actually lives.** The friction cone, the no-pull-on-the-ground rule, the torque saturations — those inequalities are the difference between a robot and a video game. Most of the real work was making sure the optimizer respected them.
-- **Tuning is not a footnote.** Every task on this page came down to days of nudging gains while watching a torque plot kiss its limit. The theory gets you a controller that *can* work; the patience gets you one that *does*.
+- **Tuning is not a footnote.** Every task on this page came down to days of nudging gains while watching a torque plot kiss its limit. The theory gets you a controller that _can_ work; the patience gets you one that _does_.
 
 I'd point to this project from my coursework as the start of robotic ambition, because it's the one where the math from week one and the gains I tweaked at 2 a.m. in finals week ended up being the same conversation.

@@ -11,7 +11,7 @@ show_in_grid: false
 ---
 
 **Ardalan Aryashad**, Parsa Razmara, Amin Mahjoub, Seyedarmin Azizi, Mahdi Salmani, Arad Firouzkouhi<br>
-*5th Workshop on Image, Video, and Audio Quality Assessment &middot; WACV 2026 &middot; Oral*
+_5th Workshop on Image, Video, and Audio Quality Assessment &middot; WACV 2026 &middot; Oral_
 
 <div class="pub-links-row">
   <a href="https://aradfir.github.io/filters-to-vlms-defogging-page/" target="_blank" class="pub-tag">Project Page</a>

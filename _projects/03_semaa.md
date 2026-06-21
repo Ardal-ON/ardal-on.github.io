@@ -12,7 +12,7 @@ permalink: /projects/semaa/
 show_in_grid: true
 ---
 
-**Ardalan Aryashad**, Rufus Marcussen, Yan Jin &mdash; *USC IMPACT Laboratory &middot; ASME IDETC-CIE 2026*
+**Ardalan Aryashad**, Rufus Marcussen, Yan Jin &mdash; _USC IMPACT Laboratory &middot; ASME IDETC-CIE 2026_
 
 <div class="pub-links-row" style="margin-bottom: 1.5rem;">
   <a href="https://semaa.site" target="_blank" class="pub-tag">semaa.site</a>
@@ -29,7 +29,7 @@ That gap is what SEMAA is about. Not a chatbot that describes what a diagram sho
 
 ## The plugin: getting inside the tool
 
-The first version was a Java plugin for Visual Paradigm. This was the natural choice: VP has a full Java API that lets you programmatically manipulate the diagram model, and building a plugin means the agent lives *inside* the engineering environment rather than next to it. The alternative — asking the AI to generate some code and then manually importing it — would have been usable but not the point.
+The first version was a Java plugin for Visual Paradigm. This was the natural choice: VP has a full Java API that lets you programmatically manipulate the diagram model, and building a plugin means the agent lives _inside_ the engineering environment rather than next to it. The alternative — asking the AI to generate some code and then manually importing it — would have been usable but not the point.
 
 {% include figure.liquid path="projects/semaa/images/Semaa System design.webp" alt="SEMAA system architecture showing plugin, agent, context manager, splitter and interpreter" caption="The core architecture: the agent lives in the plugin, which translates between PlantUML text and the VP diagram model. The context manager serializes the current diagram state before every request, so the agent always knows what it's working with." class="img-fluid rounded" %}
 
@@ -41,7 +41,6 @@ The **bidirectional interpreter** is worth calling out specifically. Before ever
   <source src="/projects/semaa/images/Demo.mp4" type="video/mp4">
 </video>
 <p style="text-align:center; font-size:0.85rem; color:var(--global-text-color-light); margin-top:0.5rem;">The LibreChat interface at semaa.site — a hosted, self-managed platform where all SEMAA agents live. Engineers can access it from any browser without installing anything.</p>
-
 
 Beyond standard PlantUML, I had to write a **custom syntax for Requirement Diagrams**, because PlantUML doesn't support them natively. This turned out to be a useful exercise — once you've built a custom parser for one diagram type, you understand exactly what the interpreter needs from the agent, and you can enforce strict syntax rules in the system prompt. SysML's Requirement Diagram has specific semantics around containment, derivation, and verification relationships that don't map to any existing text format.
 
@@ -155,7 +154,7 @@ The results were unambiguous in one direction and surprising in another.
 
 **Orchestration wins on quality across every model.** The orchestrated GPT-5.2 configuration topped every metric. More interestingly, orchestration improved smaller models proportionally more than large ones — the Evaluation Agent's syntax check catches errors that smaller models make more frequently.
 
-**Orchestration also wins on latency.** This was not obvious going in. You'd expect that routing through four agents would be slower than one. But the single-agent GPT-5.2 frequently peaked above 20 seconds, while the orchestrated version averaged 9–10 seconds. The hypothesis is that single-agent context bloat — having to process requirements documents *and* generate PlantUML simultaneously — causes the model to spend more time on internal reasoning. The orchestrated version breaks the problem into smaller, focused prompts, and the final generation agent can produce code faster because it's not also synthesizing raw documentation.
+**Orchestration also wins on latency.** This was not obvious going in. You'd expect that routing through four agents would be slower than one. But the single-agent GPT-5.2 frequently peaked above 20 seconds, while the orchestrated version averaged 9–10 seconds. The hypothesis is that single-agent context bloat — having to process requirements documents _and_ generate PlantUML simultaneously — causes the model to spend more time on internal reasoning. The orchestrated version breaks the problem into smaller, focused prompts, and the final generation agent can produce code faster because it's not also synthesizing raw documentation.
 
 The one outlier: orchestrated GPT-5 mini hit 50-second peaks despite decent quality scores. Smaller models seem to struggle with the coordination overhead even when they can handle the individual tasks.
 

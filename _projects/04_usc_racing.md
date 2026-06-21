@@ -24,7 +24,7 @@ permalink: /projects/usc-racing/
 
 ---
 
-I joined USC Racing in Fall 2024 not knowing how to run a lathe, and two years later I had reverse-engineered MoTeC's file format to weld the car's setup sheet directly into its data logs. This page is the story of that stretch — the parts I machined, the optimization study I ran, the tire decision I defended in front of a wall of judges, and the data infrastructure I built so that 60 people could actually *use* the information the car was generating.
+I joined USC Racing in Fall 2024 not knowing how to run a lathe, and two years later I had reverse-engineered MoTeC's file format to weld the car's setup sheet directly into its data logs. This page is the story of that stretch — the parts I machined, the optimization study I ran, the tire decision I defended in front of a wall of judges, and the data infrastructure I built so that 60 people could actually _use_ the information the car was generating.
 
 ## The best year in team history
 
@@ -50,9 +50,9 @@ There's a particular kind of learning that only happens when the part you turned
 
 ## How light is light enough? — unsprung mass optimization
 
-The cleanest engineering question I got to chase was deceptively simple: *how light should the wheel package actually be?*
+The cleanest engineering question I got to chase was deceptively simple: _how light should the wheel package actually be?_
 
-Unsprung mass — the wheel, upright, and everything that moves with them over a bump — is something everyone "knows" you want to minimize. But minimizing it costs money, stiffness, and time, so I wanted a real answer for *our* car, not a rule of thumb. I built a **quarter-car model** and ran a **genetic-algorithm optimization** to find the mass distribution that maximized tire grip over a bump input.
+Unsprung mass — the wheel, upright, and everything that moves with them over a bump — is something everyone "knows" you want to minimize. But minimizing it costs money, stiffness, and time, so I wanted a real answer for _our_ car, not a rule of thumb. I built a **quarter-car model** and ran a **genetic-algorithm optimization** to find the mass distribution that maximized tire grip over a bump input.
 
 <div style="margin: 2rem 0;">
   <svg viewBox="0 0 760 440" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:560px; height:auto; display:block; margin:0 auto; font-family:inherit;">
@@ -97,7 +97,7 @@ The objective function is where the real thinking went. "Maximize grip" isn't a 
 
 {% include figure.liquid path="projects/usc-racing/images/Suspension Grip optimzation.webp" caption="Tire-force response to a bump, baseline vs. GA-optimized car. The optimized setup (lower sustained ripple, faster settling) trades a slightly larger first overshoot for a tire load that returns to steady grip much sooner — which is what actually matters mid-corner." class="img-fluid rounded" %}
 
-The honest result: the GA wanted to **shed about 15 kg of total mass** (207.3 → 192.1 kg) and trim the front unsprung mass slightly (×0.96), leaving the rear nearly untouched. That bought a **faster settling time and noticeably less sustained tire-load oscillation** at the cost of a marginally higher initial overshoot — a tire that finds steady grip again sooner after every bump. It confirmed the intuition that unsprung mass matters, but it also told us *where* the payoff was (front more than rear) and *how much* total mass reduction was worth chasing before the returns flatten out. The clear next step, which I flagged for future work, is richer road profiles and validating against real damper-pot data from the car.
+The honest result: the GA wanted to **shed about 15 kg of total mass** (207.3 → 192.1 kg) and trim the front unsprung mass slightly (×0.96), leaving the rear nearly untouched. That bought a **faster settling time and noticeably less sustained tire-load oscillation** at the cost of a marginally higher initial overshoot — a tire that finds steady grip again sooner after every bump. It confirmed the intuition that unsprung mass matters, but it also told us _where_ the payoff was (front more than rear) and _how much_ total mass reduction was worth chasing before the returns flatten out. The clear next step, which I flagged for future work, is richer road profiles and validating against real damper-pot data from the car.
 
 ---
 
@@ -107,7 +107,7 @@ For competition I was chosen to own the **tire selection** for the suspension gr
 
 The specifics of that analysis are team knowledge, so I'll keep it general: the work was about matching tire behavior to our car's mass, load transfer, and the demands of the autocross and endurance events, and being able to justify the trade-offs quantitatively rather than by feel.
 
-What I *can* talk about is what it's like to defend that work in a **Design Final**. The qualifying design judging is a presentation; the final is something else entirely. You make the top 10, and then the judges come to *you* — and they don't ask surface questions. They want to know why this number, why not that one, what happens if an assumption is wrong, how you validated it. Standing in front of that and being able to answer for the tire decision, in detail, under pressure, is one of the things I'm most proud of from the whole two years. We finished **6th in the Design Final** the first year and made it back again the next.
+What I _can_ talk about is what it's like to defend that work in a **Design Final**. The qualifying design judging is a presentation; the final is something else entirely. You make the top 10, and then the judges come to _you_ — and they don't ask surface questions. They want to know why this number, why not that one, what happens if an assumption is wrong, how you validated it. Standing in front of that and being able to answer for the tire decision, in detail, under pressure, is one of the things I'm most proud of from the whole two years. We finished **6th in the Design Final** the first year and made it back again the next.
 
 ---
 
@@ -117,7 +117,7 @@ Here's the thing I noticed across all eight of those test days: **the most valua
 
 Every run, the car's MoTeC ECU writes a log file packed with everything — oil, coolant, and fuel temperatures and pressures, engine-health channels, the suspension travel at each corner (exactly what you need to tune dampers), GPS, speed, and throttle/brake position for driver coaching. But only **one laptop** on the team could physically connect to the ECU and pull the log. And on track we have **no internet — not even mobile data.** So the one log that mattered got passed around on a **USB stick**, slowly, one person at a time. People who needed the data simply didn't get it, and the analysis that should have happened between runs mostly didn't.
 
-That observation turned into the second half of my time on the team, and eventually into joining the Data Acquisition subteam. Three problems, solved in order: *get the data to everyone, give everyone the same tools to read it, and capture the one thing the logs were missing.*
+That observation turned into the second half of my time on the team, and eventually into joining the Data Acquisition subteam. Three problems, solved in order: _get the data to everyone, give everyone the same tools to read it, and capture the one thing the logs were missing._
 
 ---
 
@@ -127,7 +127,7 @@ The first problem — sharing — I solved with a server we could bring with us.
 
 The idea: a box that **hosts its own local WiFi**, so on a track with zero connectivity everyone can still join one network, mount a shared folder as a normal network drive (SMB, so it works the same on Windows, Mac, and Linux), and read or write logs at full speed instead of sneaker-netting a USB stick around the paddock.
 
-**Version 1** was deliberately minimal: a single **Raspberry Pi** broadcasting WiFi off its own antenna, with a USB drive as the shared storage. I documented the whole build — the trick is to install OpenMediaVault *first* and only then layer the access point on top with **hostapd** (the AP), **dnsmasq** (a small DHCP/DNS server handing out leases on the WiFi subnet), and **iptables** for NAT — otherwise the network config and the NAS software fight each other. It worked, and the chief engineer immediately wanted it as real team infrastructure.
+**Version 1** was deliberately minimal: a single **Raspberry Pi** broadcasting WiFi off its own antenna, with a USB drive as the shared storage. I documented the whole build — the trick is to install OpenMediaVault _first_ and only then layer the access point on top with **hostapd** (the AP), **dnsmasq** (a small DHCP/DNS server handing out leases on the WiFi subnet), and **iptables** for NAT — otherwise the network config and the NAS software fight each other. It worked, and the chief engineer immediately wanted it as real team infrastructure.
 
 So **version 2** got serious. When I joined DAQ, the brief was: make it faster, bigger, and more reliable. We repurposed a **second-hand PC** the team wasn't using, installed **OpenMediaVault** on it, and paired it with a dedicated **WiFi router on a static IP**. My favorite detail: we **powered the router straight off the PC's power supply**, so the entire system is one switch — flip the PC on, the router comes up with it, the SSID starts broadcasting, and anyone in the paddock can connect and start moving files. No laptops, no cables, no waiting.
 
@@ -139,9 +139,9 @@ So **version 2** got serious. When I joined DAQ, the brief was: make it faster, 
 
 With the data finally flowing, the next bottleneck was the tool everyone used to read it: **MoTeC i2**.
 
-i2 is powerful, but every person on the team had configured it differently — different channels, different math, different layouts. So two engineers couldn't even reliably look at *the same thing*; half of any data session was spent arguing about whether two plots were showing identical data or not. And plenty of people just didn't open i2 at all, because setting it up from scratch wasn't worth the time.
+i2 is powerful, but every person on the team had configured it differently — different channels, different math, different layouts. So two engineers couldn't even reliably look at _the same thing_; half of any data session was spent arguing about whether two plots were showing identical data or not. And plenty of people just didn't open i2 at all, because setting it up from scratch wasn't worth the time.
 
-I built a **single shared i2 workspace** that consolidates the genuinely useful stuff — the important plots, **math channels**, warnings, and alarms — into one ready-to-go foundation, organized per subteam. The point wasn't to force everyone into one view; people are free to add and modify whatever they want. The point was to make the *default* good enough that getting into data analysis takes seconds instead of an afternoon, so people actually do it and go hunting for performance in their own corner of the car.
+I built a **single shared i2 workspace** that consolidates the genuinely useful stuff — the important plots, **math channels**, warnings, and alarms — into one ready-to-go foundation, organized per subteam. The point wasn't to force everyone into one view; people are free to add and modify whatever they want. The point was to make the _default_ good enough that getting into data analysis takes seconds instead of an afternoon, so people actually do it and go hunting for performance in their own corner of the car.
 
 <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; margin:1.5rem 0;">
   <div style="flex:1 1 30%; min-width:240px;">
@@ -161,15 +161,15 @@ I built a **single shared i2 workspace** that consolidates the genuinely useful 
 
 This is the project I'd point to first if you asked what I built.
 
-Every run we now had a log, shareable and readable. But the logs were missing the single most important piece of context for actually *learning* anything: **what the car was set to.** The damper settings (each corner's damper has four adjusters — low- and high-speed compression and rebound), the fuel load, tire ages and serial numbers, spark-plug condition, ride heights, pressures — none of it was recorded. After a test day, the documentation of the car's state ranged from sparse to nonexistent.
+Every run we now had a log, shareable and readable. But the logs were missing the single most important piece of context for actually _learning_ anything: **what the car was set to.** The damper settings (each corner's damper has four adjusters — low- and high-speed compression and rebound), the fuel load, tire ages and serial numbers, spark-plug condition, ride heights, pressures — none of it was recorded. After a test day, the documentation of the car's state ranged from sparse to nonexistent.
 
-Without that, optimization is impossible. You cannot learn how a subsystem responds to a change if you don't know what the change *was*. And you lose the institutional memory: next year's team should be able to look back and see exactly how the car was configured, when it changed, and why.
+Without that, optimization is impossible. You cannot learn how a subsystem responds to a change if you don't know what the change _was_. And you lose the institutional memory: next year's team should be able to look back and see exactly how the car was configured, when it changed, and why.
 
 So I went deep into the MoTeC file format. The ECU writes the binary log as a `.ld` file — but I discovered it also produces a companion **`.ldx` file**, which is plain XML, and that **i2 reads the `.ldx` and surfaces whatever values it finds inside the log view.** There's no documentation for any of this. So I spent about a week **reverse-engineering the `.ldx` schema** — figuring out which XML fields map to which displayed values in i2 — until I could write data into a log that would simply show up when anyone opened it.
 
 Around that, I built a web application:
 
-- **Per-subteam setup forms.** An admin creates users and assigns them to subteams; when you log in you see only *your* subteam's form. The forms are defined in YAML, one per subteam (suspension, powertrain, aero, drivetrain, chassis, electronics, ergo, driver, DAQ, chief), with typed fields, units, and tabs — the suspension form alone covers dampers, corner alignment, parameters, temperatures, and tires.
+- **Per-subteam setup forms.** An admin creates users and assigns them to subteams; when you log in you see only _your_ subteam's form. The forms are defined in YAML, one per subteam (suspension, powertrain, aero, drivetrain, chassis, electronics, ergo, driver, DAQ, chief), with typed fields, units, and tabs — the suspension form alone covers dampers, corner alignment, parameters, temperatures, and tires.
 - **Smart defaults.** Each field shows the most recently logged value, so you're editing a delta from the last run, not refilling a blank sheet. Every change is audited and visible in an admin dashboard.
 - **The automatic injection.** This is the part that made it click. The backend watches the NAS for a new log to appear (the electronics team uploads it right after a run). When one shows up, the server pulls the latest value of every form field, **injects them into the `.ldx`** — text fields as XML detail strings, numeric fields as MoTeC math constants with units — and saves it back. A verification loop re-checks the files and re-injects if i2 ever rewrites them.
 
@@ -225,6 +225,7 @@ Around that, I built a web application:
     <line x1="715" y1="260" x2="715" y2="296" stroke="var(--global-theme-color)" stroke-width="1.8" marker-end="url(#arr)"/>
     <text x="250" y="78" fill="var(--global-text-color-light)" font-size="10">setup</text>
     <text x="250" y="288" fill="var(--global-text-color-light)" font-size="10">.ld</text>
+
   </svg>
   <p style="text-align:center; font-size:0.85rem; color:var(--global-text-color-light); margin-top:0.5rem;">The injection pipeline. Engineers submit setup values through the web app; when electronics uploads a new log to the NAS, a watcher injects the latest setup into the log's companion <code>.ldx</code> file — so the car's exact configuration travels with the data permanently and appears automatically in MoTeC i2.</p>
 </div>

@@ -190,9 +190,15 @@ ul.task-list input[type="checkbox"] {
   color: var(--global-theme-color);
 }
 
-h1 { color: var(--global-h1-color); }
-h2 { color: var(--global-h2-color); }
-h3 { color: var(--global-h3-color); }
+h1 {
+  color: var(--global-h1-color);
+}
+h2 {
+  color: var(--global-h2-color);
+}
+h3 {
+  color: var(--global-h3-color);
+}
 
 // Profile
 
@@ -1422,7 +1428,9 @@ html[data-theme="dark"] .pub-tag {
   border-radius: 10px;
   overflow: hidden;
   background: var(--global-card-bg-color);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
   height: 100%;
 
   &:hover {
@@ -1552,7 +1560,9 @@ html[data-theme="dark"] .pub-tag {
   padding: 0.5rem 0.6rem;
   margin-left: -0.6rem;
   margin-right: -0.6rem;
-  transition: background 0.18s ease, box-shadow 0.18s ease;
+  transition:
+    background 0.18s ease,
+    box-shadow 0.18s ease;
 
   &:hover {
     background: rgba(0, 0, 0, 0.035);
@@ -1570,7 +1580,9 @@ html[data-theme="dark"] .publications ol.bibliography li:hover {
   padding: 0.5rem 0.6rem;
   margin-left: -0.6rem;
   margin-right: -0.6rem;
-  transition: background 0.18s ease, box-shadow 0.18s ease;
+  transition:
+    background 0.18s ease,
+    box-shadow 0.18s ease;
 
   &:hover {
     background: rgba(0, 0, 0, 0.035);

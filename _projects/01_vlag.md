@@ -11,7 +11,7 @@ permalink: /projects/vlag/
 show_in_grid: false
 ---
 
-**Ardalan Aryashad**, Yan Jin &mdash; *USC IMPACT Laboratory &middot; ASME IDETC/CIE 2025*
+**Ardalan Aryashad**, Yan Jin &mdash; _USC IMPACT Laboratory &middot; ASME IDETC/CIE 2025_
 
 <div class="pub-links-row" style="margin: 0.75rem 0 1.5rem;">
   <a href="https://doi.org/10.1115/DETC2025-169527" target="_blank" class="pub-tag">Paper</a>
@@ -36,7 +36,7 @@ These three paradigms share a common trade-off:
 - **Hierarchical planners** — added planning structure, but reliant on opaque generative subgoal modules.
 - **End-to-end policies** — efficient and precise, but limited to single-stage tasks.
 
-VLAG targets this trade-off directly by decomposing the monolithic VLA into distinct, efficient expert components coordinated by an explicit, graph-structured planner. The router decomposes the available dataset into a network of tasks connecting discrete environmental states, enabling long-horizon planning without billion-parameter foundation-model inference at every step. Unlike prior hierarchical methods, VLAG performs *explicit state-transition routing* over a pre-built graph, yielding a transparent and modifiable planning structure rather than a generated subgoal.
+VLAG targets this trade-off directly by decomposing the monolithic VLA into distinct, efficient expert components coordinated by an explicit, graph-structured planner. The router decomposes the available dataset into a network of tasks connecting discrete environmental states, enabling long-horizon planning without billion-parameter foundation-model inference at every step. Unlike prior hierarchical methods, VLAG performs _explicit state-transition routing_ over a pre-built graph, yielding a transparent and modifiable planning structure rather than a generated subgoal.
 
 The primary contributions are threefold:
 
@@ -56,7 +56,7 @@ VLAG is a modular Mixture-of-Experts framework in which a graph-based router int
 
 ## The Graph Router
 
-Long-horizon manipulation tasks require extended action sequences and explicit planning. VLAG addresses this by mapping sub-tasks to transitions in a directed graph $$G=(V,E)$$, where nodes $$V$$ correspond to distinct environmental states and directed edges $$E$$ represent the action experts that transition between them. Crucially, the router performs **selection, not full sequential planning**: given the current state and a language instruction, it identifies the single best-matching edge to activate at that moment. Long-horizon execution emerges from *repeated, single-step routing*—after each expert completes its sub-task, the vision module re-evaluates the updated state and the router selects the next edge, continuing until the instruction is satisfied or no matching edge is found.
+Long-horizon manipulation tasks require extended action sequences and explicit planning. VLAG addresses this by mapping sub-tasks to transitions in a directed graph $$G=(V,E)$$, where nodes $$V$$ correspond to distinct environmental states and directed edges $$E$$ represent the action experts that transition between them. Crucially, the router performs **selection, not full sequential planning**: given the current state and a language instruction, it identifies the single best-matching edge to activate at that moment. Long-horizon execution emerges from _repeated, single-step routing_—after each expert completes its sub-task, the vision module re-evaluates the updated state and the router selects the next edge, continuing until the instruction is satisfied or no matching edge is found.
 
 The graph is constructed from a dataset $$D=\{(s_t,a_t,o_t)_{t=0}^{T},(l_i)_{i=0}^{N}\}$$ of robot states, actions, observations, and language instructions. For each task trajectory, the start ($$t=0$$) and end ($$t=T$$) states are encoded by the vision module into feature vectors, and nodes are instantiated for each. A cosine-similarity check against existing nodes, with an empirically chosen merge threshold of **0.98**, keeps the graph compact: states below the threshold spawn a new node, while matches append a timestamp to an existing one. Directed edges are then drawn between start and end nodes, labeled with the task's language instruction. When multiple outgoing edges are candidate matches, the language module resolves the tie by selecting the edge whose task label has the highest cosine similarity to the user's instruction.
 
@@ -177,7 +177,7 @@ We instrument the evaluation to separate **routing failures** (no executable sub
 
 ### Wall-clock runtime and GPU memory
 
-Timing and memory were recorded on one NVIDIA A100 PCIe (40 GB) with dual AMD EPYC 7513 hosts. The MoE achieves higher subtask throughput and lower per-subtask latency than the single policy, but carries higher end-to-end runtime and peak memory. These measurements distinguish *architectural compactness* (~100M parameters) from *runtime overhead*: the modular design improves long-horizon competence but still incurs coordination and memory costs to be reduced in future work.
+Timing and memory were recorded on one NVIDIA A100 PCIe (40 GB) with dual AMD EPYC 7513 hosts. The MoE achieves higher subtask throughput and lower per-subtask latency than the single policy, but carries higher end-to-end runtime and peak memory. These measurements distinguish _architectural compactness_ (~100M parameters) from _runtime overhead_: the modular design improves long-horizon competence but still incurs coordination and memory costs to be reduced in future work.
 
 <figure class="report-table">
   <table>
@@ -204,9 +204,9 @@ We isolate each component—language retrieval, visual state estimation, graph c
 
 **Language retrieval.** On 34 held instruction-task pairs, fine-tuned SBERT reaches **0.9706** accuracy with or without underscore formatting, versus 0.8235 (with) and 0.7941 (without) for base SBERT. Domain-specific fine-tuning matters even for a small task vocabulary, because minor linguistic variation is enough to degrade off-the-shelf embeddings.
 
-**Vision-state prediction (oracle vs. learned).** Against an oracle reference of 1.0, predicted Boolean states are reliable (lightbulb 0.9570, green light 0.9424), but continuous variables within a strict ±1% band are uneven—sliding door 0.3540, drawer 0.5189, switch 0.8512. The vision bottleneck is concentrated in *fine-grained continuous-state estimation*, not binary attribute recognition.
+**Vision-state prediction (oracle vs. learned).** Against an oracle reference of 1.0, predicted Boolean states are reliable (lightbulb 0.9570, green light 0.9424), but continuous variables within a strict ±1% band are uneven—sliding door 0.3540, drawer 0.5189, switch 0.8512. The vision bottleneck is concentrated in _fine-grained continuous-state estimation_, not binary attribute recognition.
 
-**Graph construction (node-merge sensitivity).** Raising the cosine merge threshold from 0.90 to 0.99 grows node count from 8 to 19 while edge count (145) and unique-task count (20) stay fixed—the threshold controls node *granularity*, not coverage—supporting 0.98 as the operating point.
+**Graph construction (node-merge sensitivity).** Raising the cosine merge threshold from 0.90 to 0.99 grows node count from 8 to 19 while edge count (145) and unique-task count (20) stay fixed—the threshold controls node _granularity_, not coverage—supporting 0.98 as the operating point.
 
 <figure class="report-table">
   <table>
