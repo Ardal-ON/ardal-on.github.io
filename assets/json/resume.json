@@ -1,0 +1,279 @@
+{
+  "basics": {
+    "name": "Ardalan Aryashad",
+    "label": "Ph.D. Student in Mechanical Engineering & M.Sc. Student in Computer Science",
+    "image": "",
+    "email": "aryashad@usc.edu",
+    "phone": "(213) 551-5016",
+    "url": "https://ardal-on.github.io",
+    "summary": "Ph.D. student at the USC IMPACT Lab working on vision-language-action models, robotic task planning, and agentic AI for model-based systems engineering.",
+    "location": {
+      "city": "Los Angeles",
+      "countryCode": "US",
+      "region": "California"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "ardal-on",
+        "url": "https://github.com/ardal-on"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "aryashad",
+        "url": "https://www.linkedin.com/in/aryashad"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "University of Southern California",
+      "location": "Los Angeles, CA",
+      "url": "https://www.usc.edu/",
+      "area": "Mechanical Engineering",
+      "studyType": "Ph.D.",
+      "startDate": "2023-08-01",
+      "endDate": "",
+      "score": "3.88/4.0",
+      "courses": ["Vision-Language-Action Models", "Robotic Task Planning", "Agentic AI for MBSE"]
+    },
+    {
+      "institution": "University of Southern California",
+      "location": "Los Angeles, CA",
+      "url": "https://www.usc.edu/",
+      "area": "Computer Science",
+      "studyType": "M.Sc.",
+      "startDate": "2026-01-01",
+      "endDate": "",
+      "score": "3.88/4.0",
+      "courses": []
+    },
+    {
+      "institution": "Sharif University of Technology",
+      "location": "Tehran, Iran",
+      "url": "https://en.sharif.edu/",
+      "area": "Mechanical Engineering",
+      "studyType": "B.Sc.",
+      "startDate": "2018-09-01",
+      "endDate": "2023-08-01",
+      "score": "18.18/20.0",
+      "courses": []
+    }
+  ],
+  "work": [
+    {
+      "name": "IMPACT Laboratory, University of Southern California",
+      "position": "Research Assistant",
+      "url": "https://impact.usc.edu/",
+      "startDate": "2023-08-01",
+      "endDate": "",
+      "summary": "Research on vision-language-action models and agentic AI for mechanical systems engineering.",
+      "highlights": [
+        "Developed a graph-based planning framework (VLAG) for VLA models in long-horizon manipulation tasks.",
+        "Trained a CLIP-based vision model achieving 95% accuracy on environmental key state prediction.",
+        "Fine-tuned a sentence transformer model reaching 98% instruction-to-task matching accuracy.",
+        "Trained a Transformer-based action model validated on the CALVIN dataset.",
+        "Designed single and multi-agent workflows for MBSE modeler tasks.",
+        "Created a Visual Paradigm plugin to auto-generate SysML diagrams using a custom LLM agent.",
+        "Implemented a text extraction pipeline integrated into a RAG system for an AI agent."
+      ]
+    },
+    {
+      "name": "Micro-Nano Systems Lab, Sharif University of Technology",
+      "position": "Research Assistant",
+      "url": "https://en.sharif.edu/",
+      "startDate": "2022-08-01",
+      "endDate": "2023-06-01",
+      "summary": "Control system design for a PCR microsystem.",
+      "highlights": [
+        "Conducted system identification experiments on a PCR microsystem.",
+        "Designed a 2-DOF PID controller reducing settling time by 17% and eliminating overshoot.",
+        "Trained a neural network predictive model and implemented it in MPC.",
+        "Executed MPC on a Raspberry Pi using MATLAB/Simulink."
+      ]
+    },
+    {
+      "name": "Experimental Solid Mechanics and Manufacturing Lab, Sharif University of Technology",
+      "position": "Research Assistant",
+      "url": "https://en.sharif.edu/",
+      "startDate": "2021-09-01",
+      "endDate": "2022-06-01",
+      "summary": "Pipe material selection and surge pressure simulation.",
+      "highlights": [
+        "Reviewed literature on essential parameters for pipe material selection in water networks.",
+        "Conducted surveys and interviews with design engineers to rank design parameters.",
+        "Simulated surge pressure phenomena using FEM in Iranian PE pipes."
+      ]
+    },
+    {
+      "name": "Automotive Industries Research & Innovation Center of SAIPA (AIRIC)",
+      "position": "Student Intern",
+      "url": "",
+      "startDate": "2021-06-01",
+      "endDate": "2021-08-01",
+      "summary": "Regenerative braking simulation and analysis.",
+      "highlights": [
+        "Researched and simulated regenerative braking performance for Saipa Shahin.",
+        "Developed a script to convert Google Maps data into simulation-compatible road profiles.",
+        "Simulated regenerative braking across multiple real-world routes."
+      ]
+    },
+    {
+      "name": "Industrial Saipa Heavy Dies Manufacturing",
+      "position": "Student Intern",
+      "url": "",
+      "startDate": "2020-06-01",
+      "endDate": "2020-08-01",
+      "summary": "Maintenance department support and process automation.",
+      "highlights": [
+        "Developed an Excel-based preventive maintenance schedule.",
+        "Built a web-based maintenance request system to improve department workflow."
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "IDETC-CIE, WACV, International Journal of Computer Integrated Manufacturing",
+      "position": "Peer Reviewer",
+      "startDate": "2024-01-01",
+      "endDate": "",
+      "summary": "Reviewing manuscripts in robotics, computer vision, and mechanical engineering."
+    },
+    {
+      "organization": "Mechanical Engineering Department, Sharif University of Technology",
+      "position": "Teaching Assistant",
+      "startDate": "2020-09-01",
+      "endDate": "2023-06-01",
+      "summary": "Applied Finite Element, Control Design, Mechanical Design, Embedded Systems, Dynamics, and Statics courses."
+    },
+    {
+      "organization": "IMPACT Laboratory, University of Southern California",
+      "position": "Mentor",
+      "startDate": "2024-01-01",
+      "endDate": "",
+      "summary": "Mentoring students on RAG modules, hyperparameter optimization for robotic manipulation, and dataset collection."
+    }
+  ],
+  "awards": [
+    {
+      "title": "Andrew and Erna Viterbi Graduate Student Fellowship",
+      "date": "2023-08-01",
+      "awarder": "Department of Aerospace & Mechanical Engineering, USC",
+      "summary": "Fellowship awarded to incoming Ph.D. students in the AME department."
+    },
+    {
+      "title": "Best Teaching Assistant in Mechanical Engineering",
+      "date": "2022-06-01",
+      "awarder": "Sharif University of Technology",
+      "summary": "Voted by students across the Mechanical Engineering department."
+    },
+    {
+      "title": "National University Entrance Exam — Ranked 146th out of 144,000",
+      "date": "2019-01-01",
+      "awarder": "Iran National Organization for Educational Testing",
+      "summary": "Mathematics branch, national rank 146 out of 144,000 participants."
+    }
+  ],
+  "publications": [
+    {
+      "name": "VLAG: Graph-Based Planning for Vision-Language-Action Models in Long Horizon Manipulation Tasks",
+      "publisher": "ASME IDETC/CIE 2025",
+      "releaseDate": "2025-01-01",
+      "url": "https://doi.org/10.1115/DETC2025-169527",
+      "summary": "A modular graph-based planning framework for VLA models that decomposes long-horizon tasks into structured subtasks using dedicated vision, language, and action modules."
+    },
+    {
+      "name": "From Filters to VLMs: Benchmarking Defogging Methods through Object Detection and Segmentation Performance",
+      "publisher": "Workshop on Image/Video/Audio Quality Assessment, WACV 2026",
+      "releaseDate": "2024-01-01",
+      "url": "https://aradfir.github.io/filters-to-vlms-defogging-page/",
+      "summary": "A benchmark pipeline evaluating fog-removal methods by their effect on downstream object detection and segmentation tasks across synthetic and real-world fog datasets."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Software",
+      "level": "",
+      "icon": "fa-solid fa-desktop",
+      "keywords": ["Matlab", "Simulink", "Simscape", "SolidWorks", "Abaqus", "NX", "Ansys", "Proteus", "Cursor"]
+    },
+    {
+      "name": "Programming Languages & Tools",
+      "level": "",
+      "icon": "fa-solid fa-code",
+      "keywords": ["Python", "PyTorch", "MuJoCo", "PyBullet", "lerobot", "C/C++", "Linux", "Git", "AWS", "Slurm"]
+    },
+    {
+      "name": "Prototyping & Hardware",
+      "level": "",
+      "icon": "fa-solid fa-microchip",
+      "keywords": ["Arduino", "Raspberry Pi", "3D Printing", "Lathe", "Soldering", "Serial Communication", "Servo/Stepper Motor Control"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Persian",
+      "fluency": "Native speaker",
+      "icon": ""
+    },
+    {
+      "language": "English",
+      "fluency": "Fluent",
+      "icon": ""
+    }
+  ],
+  "interests": [
+    {
+      "name": "Research",
+      "icon": "fa-solid fa-robot",
+      "keywords": [
+        "Vision-Language-Action Models",
+        "Robotic Task Planning",
+        "Agentic AI",
+        "Model-Based Systems Engineering",
+        "Mechanical Design Automation"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "Prof. Yan Jin",
+      "icon": "fa-solid fa-user",
+      "reference": "Advisor, IMPACT Laboratory, University of Southern California. Available upon request."
+    }
+  ],
+  "projects": [
+    {
+      "name": "VLAG",
+      "summary": "Graph-based planning framework for vision-language-action models in long-horizon robotic manipulation.",
+      "highlights": ["IDETC/CIE 2025", "USC IMPACT Lab"],
+      "startDate": "2024-01-01",
+      "endDate": "2025-01-01",
+      "url": "/projects/vlag/"
+    },
+    {
+      "name": "Fog Removal Benchmark",
+      "summary": "Benchmark pipeline evaluating defogging methods on downstream object detection and segmentation tasks.",
+      "highlights": ["WACV 2026 Workshop", "54 pipelines evaluated"],
+      "startDate": "2023-01-01",
+      "endDate": "2024-01-01",
+      "url": "https://aradfir.github.io/filters-to-vlms-defogging-page/"
+    },
+    {
+      "name": "SEMAA",
+      "summary": "Single and multi-agent assistant workflows for mechanical systems engineering and MBSE modeler tasks.",
+      "highlights": ["USC IMPACT Lab", "semaa.site"],
+      "startDate": "2024-01-01",
+      "endDate": "",
+      "url": "https://semaa.site"
+    },
+    {
+      "name": "USC Formula Student Racing",
+      "summary": "Suspension design and DAQ system for USC's FSAE competition entry. Top 10 Design Finals at FSAE Michigan 2024.",
+      "highlights": ["Top 10 Design FSAE Michigan 2024", "Suspension optimization", "Raspberry Pi NAS for MoTeC ECU logs"],
+      "startDate": "2023-08-01",
+      "endDate": "2024-06-01",
+      "url": "/projects/usc-racing/"
+    }
+  ]
+}

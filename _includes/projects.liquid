@@ -1,0 +1,29 @@
+<a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}" class="project-card-link">
+  <div class="project-card">
+    {% if project.img %}
+      <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" class="project-card-img">
+    {% endif %}
+    <div class="project-card-body">
+      {% if project.category %}
+        <span class="project-card-category">{{ project.category }}</span>
+      {% endif %}
+      <h3 class="project-card-title">{{ project.title }}</h3>
+      {% if project.description %}
+        <p class="project-card-desc">{{ project.description }}</p>
+      {% endif %}
+      {% if project.github %}
+        <div class="project-card-github">
+          <a href="{{ project.github }}" class="project-card-github-link">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          {% if project.github_stars %}
+            <span class="project-card-stars">
+              <i class="fa-solid fa-star"></i>
+              <span id="{{ project.github_stars }}-stars"></span>
+            </span>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</a>

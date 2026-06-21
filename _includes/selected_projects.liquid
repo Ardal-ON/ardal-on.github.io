@@ -1,0 +1,40 @@
+{% assign ongoing_home = site.projects | where: "ongoing", true | sort: "year" | reverse %}
+{% assign finished_home = site.projects | where_exp: "p", "p.ongoing != true" | sort: "year" | reverse %}
+{% assign sorted_home_projects = ongoing_home | concat: finished_home %}
+{% for project in sorted_home_projects %}
+  {% if project.show_in_grid == false %}{% continue %}{% endif %}
+  <div class="selected-pub-card mb-3">
+  <div class="row">
+    {% if project.img %}
+      <div class="col col-sm-2 abbr">
+        {% if project.period %}
+          <abbr class="badge rounded w-100">{{ project.period }}</abbr>
+        {% endif %}
+        <a href="{{ project.url | relative_url }}">
+          {%
+            include figure.liquid
+            loading="eager"
+            path=project.img
+            sizes="200px"
+            class="preview z-depth-1 rounded"
+            alt=project.title
+          %}
+        </a>
+      </div>
+      <div class="col-sm-8">
+    {% else %}
+      <div class="col-sm-10">
+    {% endif %}
+        <div class="pub-title">
+          <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+        </div>
+        {% if project.description %}
+          <div class="pub-venue">{{ project.description }}</div>
+        {% endif %}
+        <div class="pub-links-row">
+          <a href="{{ project.url | relative_url }}" class="pub-tag">Website</a>
+        </div>
+      </div>
+  </div>
+  </div>
+{% endfor %}
