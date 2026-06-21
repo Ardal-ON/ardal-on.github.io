@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Project Template - A lightweight academic project page template">
+  <meta name="keywords" content="Academic Project Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Your Name">
+
+  <title>Project Title - Your Name</title>
+  <link rel="icon" type="image/x-icon" href="../../images/favicon/favicon.ico">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../static/css/template.css">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="images/teaser.mp4" as="video">
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Project Title</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="#" target="_blank">First Author</a><sup></sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Second Author</a><sup></sup>,
+              </span>
+              <span class="author-block">
+                <a href="#" target="_blank">Third Author</a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Institution Name<br>Conference Name and Year</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="images/paper.pdf" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">📄</span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/your-repo" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">💻</span>
+                <span>Code</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/your-paper" target="_blank"
+              class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">📚</span>
+              <span>arXiv</span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Your abstract goes here. This is a lightweight template that removes external dependencies
+            and uses local JavaScript for carousel functionality. The page loads much faster without
+            jQuery, FontAwesome, and other heavy external libraries.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Demo</h2>
+      <div class="carousel-container">
+        <div class="carousel-wrapper">
+          <div class="carousel-slide active">
+            <video poster="" controls muted loop preload="metadata">
+              <source src="images/video1.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">Demo 1</h2>
+          </div>
+          <div class="carousel-slide">
+            <video poster="" controls muted loop preload="metadata">
+              <source src="images/video2.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">Demo 2</h2>
+          </div>
+          <div class="carousel-slide">
+            <video poster="" controls muted loop preload="metadata">
+              <source src="images/video3.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">Demo 3</h2>
+          </div>
+        </div>
+        <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+        <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+        <div class="carousel-dots">
+          <span class="dot active" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Figures</h2>
+      <div class="carousel-container">
+        <div class="carousel-wrapper">
+          <div class="carousel-slide active">
+            <img src="images/figure1.webp" alt="Figure 1" loading="lazy"/>
+            <h2 class="subtitle has-text-centered">Figure 1</h2>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/figure2.png" alt="Figure 2" loading="lazy"/>
+            <h2 class="subtitle has-text-centered">Figure 2</h2>
+          </div>
+          <div class="carousel-slide">
+            <img src="images/figure3.png" alt="Figure 3" loading="lazy"/>
+            <h2 class="subtitle has-text-centered">Figure 3</h2>
+          </div>
+        </div>
+        <button class="carousel-btn prev" onclick="changeSlide(-1, 1)">❮</button>
+        <button class="carousel-btn next" onclick="changeSlide(1, 1)">❯</button>
+        <div class="carousel-dots">
+          <span class="dot active" onclick="currentSlide(1, 1)"></span>
+          <span class="dot" onclick="currentSlide(2, 1)"></span>
+          <span class="dot" onclick="currentSlide(3, 1)"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page was built using a modified version of the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> 
+            to improve loading speed and user experience. The source code for this modified template is available at 
+            <a href="https://github.com/Ardal-ON/ardal-on.github.io" target="_blank">GitHub</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- JavaScript -->
+<script src="../static/js/template.js"></script>
+
+</body>
+</html> 
