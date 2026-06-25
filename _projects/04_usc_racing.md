@@ -24,11 +24,11 @@ permalink: /projects/usc-racing/
 
 ---
 
-I joined USC Racing in Fall 2024 not knowing how to run a lathe, and two years later I had reverse-engineered MoTeC's file format to weld the car's setup sheet directly into its data logs. This page is the story of that stretch — the parts I machined, the optimization study I ran, the tire decision I defended in front of a wall of judges, and the data infrastructure I built so that 60 people could actually _use_ the information the car was generating.
+I joined USC Racing in Fall 2024, and the last two years on this team were the best and most rewarding years I've had. This page is the story of the parts I machined, the optimization study I ran, the design decision I defended in front of judges, and the data infrastructure I built so that 60 people could actually _use_ the data the car was generating.
 
 ## The best year in team history
 
-Let me put the results first, because they're the reason all of this was worth it.
+Let me put the results first.
 
 At the most recent competition, USC Racing **won the autocross event outright** — first place — and finished **7th overall out of roughly 120 teams**. We reached the **Design Finals** for the third time in team history and the second year in a row: the top 10 teams, pulled aside so every judge can come at you personally with deep, specific questions about why you made each design choice. It was, by every measure, the best competition the team has ever had.
 
@@ -42,15 +42,15 @@ The piece I'm proudest of is quieter. The data acquisition system we built drew 
 
 My first year was almost entirely hands-on. I learned to manufacture by manufacturing.
 
-I machined the **suspension bushings** on the lathe, cut parts on the **water jet**, and assembled full **suspension corners** — the uprights, control arms, and all the hardware that ties a wheel to the chassis — as well as working on the **chassis** itself. Over the year I was on track for **all eight of the team's test days**, from shaking down the previous car (SCR24) and running it at the SoCal Shootout, through to building and commissioning the new car (SCR25).
+I machined the **suspension bushings** on the lathe, cut parts on the **water jet**, and assembled full **suspension corners** — the uprights, control arms, and all the hardware that ties a wheel to the chassis — as well as working on the **chassis** itself. Over the year I was on track for **all of the team's test days**, from shaking down the previous car (SCR24) and running it at the SoCal Shootout, through to building and testing the new car (SCR25).
 
-There's a particular kind of learning that only happens when the part you turned on the lathe that morning is the part bolted to a car doing 60 mph that afternoon. Test days are where the design assumptions meet reality, and being there for all eight of them is what later told me exactly what the team was missing — but more on that below.
+There's a particular kind of learning that only happens when the part you manufactured is the part bolted to a car doing 60 mph on a track. Test days are where the design assumptions meet reality, and being there for all of them is what later told me exactly what the team was missing — but more on that below.
 
 ---
 
 ## How light is light enough? — unsprung mass optimization
 
-The cleanest engineering question I got to chase was deceptively simple: _how light should the wheel package actually be?_
+The first engineering question I got to chase was deceptively simple: _how light should the wheel package actually be?_
 
 Unsprung mass — the wheel, upright, and everything that moves with them over a bump — is something everyone "knows" you want to minimize. But minimizing it costs money, stiffness, and time, so I wanted a real answer for _our_ car, not a rule of thumb. I built a **quarter-car model** and ran a **genetic-algorithm optimization** to find the mass distribution that maximized tire grip over a bump input.
 
@@ -93,27 +93,27 @@ Unsprung mass — the wheel, upright, and everything that moves with them over a
 
 The model came straight from our own car's numbers (taken from the SCR24 design data): a total mass of **207.3 kg**, unsprung masses of **24.64 kg front / 26.98 kg rear**, a 48/52 front-rear weight split, suspension rates of 43.2 kN/m front and 27.8 kN/m rear, and a tire stiffness of 94.2 kN/m, with the damper sized for a damping ratio of 0.7. I derived the transfer function from sprung/unsprung dynamics, then turned it loose on a genetic algorithm.
 
-The objective function is where the real thinking went. "Maximize grip" isn't a single number, so I built a **weighted, normalized score** combining three things measured against the baseline car: **settling time**, **peak tire force**, and **RMS tire force** — for both front and rear. The ideal is a tire that recovers a constant contact force as fast as possible after a bump, with the least sustained oscillation. I constrained the search to keep it physically sane: unsprung-mass changes capped at ±5%, total mass within ±20 kg, and spring rates kept above a sensible floor.
+The objective function is where the real problem is defined. "Maximize grip" isn't a single number, so I built a **weighted, normalized score** combining three things measured against the baseline car: **settling time**, **peak tire force**, and **RMS tire force** — for both front and rear. The ideal is a tire that recovers a constant contact force as fast as possible after a bump, with the least sustained oscillation. I constrained the search to keep it physically sane: unsprung-mass changes capped at ±5%, total mass within ±20 kg, and spring rates kept above a sensible floor.
 
 {% include figure.liquid path="projects/usc-racing/images/Suspension Grip optimzation.webp" caption="Tire-force response to a bump, baseline vs. GA-optimized car. The optimized setup (lower sustained ripple, faster settling) trades a slightly larger first overshoot for a tire load that returns to steady grip much sooner — which is what actually matters mid-corner." class="img-fluid rounded" %}
 
-The honest result: the GA wanted to **shed about 15 kg of total mass** (207.3 → 192.1 kg) and trim the front unsprung mass slightly (×0.96), leaving the rear nearly untouched. That bought a **faster settling time and noticeably less sustained tire-load oscillation** at the cost of a marginally higher initial overshoot — a tire that finds steady grip again sooner after every bump. It confirmed the intuition that unsprung mass matters, but it also told us _where_ the payoff was (front more than rear) and _how much_ total mass reduction was worth chasing before the returns flatten out. The clear next step, which I flagged for future work, is richer road profiles and validating against real damper-pot data from the car.
+The honest result: the GA wanted to **shed about 15 kg of total mass** (207.3 → 192.1 kg) and trim the front unsprung mass slightly (×0.96), leaving the rear nearly untouched. That bought a **faster settling time and noticeably less sustained tire-load oscillation** at the cost of a marginally higher initial overshoot — a tire that finds steady grip again sooner after every bump. It confirmed the intuition that unsprung mass matters, but it also told us _where_ the payoff was (front more than rear) and _how much_ total mass reduction was worth chasing before the returns flatten out. The next step, which I documented for future work, is complex and realistic road profiles and validating against real damper data from the car.
 
 ---
 
 ## Choosing tires, and defending it in the Design Finals
 
-For competition I was chosen to own the **tire selection** for the suspension group — running the simulations behind which tire compound and construction the car would race on, and then presenting and defending that decision as part of the suspension design package.
+For competition I was chosen to present the **tire selection** for the suspension group — running the simulations behind which tire compound and construction the car would race on, and then presenting and defending that decision as part of the suspension design package.
 
 The specifics of that analysis are team knowledge, so I'll keep it general: the work was about matching tire behavior to our car's mass, load transfer, and the demands of the autocross and endurance events, and being able to justify the trade-offs quantitatively rather than by feel.
 
-What I _can_ talk about is what it's like to defend that work in a **Design Final**. The qualifying design judging is a presentation; the final is something else entirely. You make the top 10, and then the judges come to _you_ — and they don't ask surface questions. They want to know why this number, why not that one, what happens if an assumption is wrong, how you validated it. Standing in front of that and being able to answer for the tire decision, in detail, under pressure, is one of the things I'm most proud of from the whole two years. We finished **6th in the Design Final** the first year and made it back again the next.
+What I _can_ talk about is what it's like to defend that work in a **Design Final**. The qualifying design judging is almost like a presentation; the final is something else entirely. You make the top 10, and then the judges come to _you_ — and they don't ask surface questions. They want to know why this number, why not that one, what happens if an assumption is wrong, how you validated it. Standing in front of that and being able to answer for your decisions, in detail, under pressure, is one of the things I'm most proud of from the whole two years. We finished **6th in the Design Final** the first year and made it back again the next.
 
 ---
 
-## The data problem nobody could see
+## The data that almost nobody looked at
 
-Here's the thing I noticed across all eight of those test days: **the most valuable thing the car produced was its data logs, and almost no one could get to them.**
+Here's the thing I noticed across all of SCR25's test days: **the most valuable thing the car produced was its data logs, and almost no one could get to them.**
 
 Every run, the car's MoTeC ECU writes a log file packed with everything — oil, coolant, and fuel temperatures and pressures, engine-health channels, the suspension travel at each corner (exactly what you need to tune dampers), GPS, speed, and throttle/brake position for driver coaching. But only **one laptop** on the team could physically connect to the ECU and pull the log. And on track we have **no internet — not even mobile data.** So the one log that mattered got passed around on a **USB stick**, slowly, one person at a time. People who needed the data simply didn't get it, and the analysis that should have happened between runs mostly didn't.
 
@@ -159,7 +159,7 @@ I built a **single shared i2 workspace** that consolidates the genuinely useful 
 
 ## The missing piece: welding the setup sheet into the logs
 
-This is the project I'd point to first if you asked what I built.
+This is the project I'm most proud of in the DAQ subteam.
 
 Every run we now had a log, shareable and readable. But the logs were missing the single most important piece of context for actually _learning_ anything: **what the car was set to.** The damper settings (each corner's damper has four adjusters — low- and high-speed compression and rebound), the fuel load, tire ages and serial numbers, spark-plug condition, ride heights, pressures — none of it was recorded. After a test day, the documentation of the car's state ranged from sparse to nonexistent.
 
