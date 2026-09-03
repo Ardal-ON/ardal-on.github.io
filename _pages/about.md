@@ -1,7 +1,10 @@
 ---
 layout: about
-title: about
+title: Ardalan Aryashad
+nav_title: about
 permalink: /
+description: AME Ph.D. student at USC and Computer Science M.S. student researching vision-language-action models, robotic task planning, and agentic AI for MBSE.
+image: /assets/img/prof_pic.webp
 subtitle: >
   Ph.D. Student, <a href="https://viterbi.usc.edu/ame/" target="_blank">Aerospace & Mechanical Engineering</a> · <a href="https://www.usc.edu/" target="_blank">USC</a>
   <br>
