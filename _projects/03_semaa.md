@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SEMAA: Agentic AI for Model-Based Systems Engineering"
-description: A growing ecosystem of AI tools that put a conversational agent directly inside MBSE workflows — from a Visual Paradigm plugin to a self-hosted multi-agent platform with GraphRAG and private LLMs
+description: "SEMAA brings conversational AI into everyday systems-engineering work, from editing diagrams to working with private engineering data."
 img: assets/img/projects/semaa.webp
 importance: 4
 year: 2026

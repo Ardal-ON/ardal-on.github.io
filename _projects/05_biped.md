@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Walking Biped Robot
-description: A two-legged robot that learned to stand, walk, run 10 m, and climb stairs in simulation — driven by one convex-MPC controller, and built on a semester of dynamics-and-control homework.
+description: "We used a single model-predictive controller to make a simulated biped stand, walk, run 10 meters, and climb stairs."
 img: assets/img/projects/biped.webp
 importance: 3
 year: 2024

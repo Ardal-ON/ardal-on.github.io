@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "VLAG: Graph-Based Planning for Vision-Language-Action Models"
-description: A modular Mixture-of-Experts framework that replaces a monolithic VLA backbone with a graph-based router over compact vision, language, and action experts for long-horizon manipulation.
+description: "A graph-based robot planner that connects specialized vision, language, and action models instead of relying on one large end-to-end model."
 img: assets/img/projects/vlag.webp
 importance: 1
 year: 2025

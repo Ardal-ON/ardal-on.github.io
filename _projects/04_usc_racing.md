@@ -1,7 +1,7 @@
 ---
 layout: page
 title: USC Racing — Suspension & Data Acquisition
-description: From cutting bushings on a lathe to welding car setup data into the log files — two years on USC's Formula SAE team.
+description: "Two years with USC Racing, split between hands-on suspension work and building tools that made the car’s data useful at the track."
 img: assets/img/projects/usc-racing.webp
 importance: 4
 year: 2026

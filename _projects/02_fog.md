@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "From Filters to VLMs: Benchmarking Defogging Methods through Object Detection and Segmentation Performance"
-description: Evaluating defogging methods by downstream object detection and segmentation performance
+description: "A benchmark of nearly 30 defogging methods, measured by their impact on object detection and segmentation in synthetic and real fog."
 img: assets/img/projects/fog.webp
 importance: 2
 year: 2026

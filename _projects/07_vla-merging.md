@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Merging Robot Brains (and Why It Didn't Work)"
-description: We tried to build a multi-task robot by training one expert per task and averaging their weights together — six merging operators, four adapter regimes, 63 configurations. Almost every one returned zero. This is the story of a negative result we trust.
+description: "An experiment in merging task-specific robot policies that produced a clear negative result: averaging their weights did not preserve the skills."
 img: assets/img/projects/vla-merging.webp
 importance: 3
 year: 2026

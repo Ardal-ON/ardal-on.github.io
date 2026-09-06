@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Automotive Predictive Maintenance
-description: ML application for engine fault prediction from automotive sensor data
+description: "A course project that took messy automotive sensor data from preprocessing and model comparison to a working maintenance app."
 img: assets/img/projects/apm.webp
 importance: 6
 year: 2023
