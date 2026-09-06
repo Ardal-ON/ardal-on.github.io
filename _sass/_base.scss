@@ -1630,6 +1630,13 @@ html[data-theme="dark"] .selected-pub-card:hover {
   align-self: center;
 }
 
+@media (max-width: 575px) {
+  .bio-row {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+}
+
 .selected-pub-img {
   width: 100%;
   aspect-ratio: 4/3;
