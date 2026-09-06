@@ -1160,13 +1160,25 @@ ninja-keys::part(ninja-input-wrapper) {
   background: var(--global-bg-color);
 }
 
-// news / announcements — tighten vertical spacing between entries
+// News / announcements
 .news {
+  .table {
+    table-layout: fixed;
+  }
+
   .table th,
   .table td {
-    padding-top: 0.1rem;
-    padding-bottom: 0.1rem;
-    line-height: 1.8;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    line-height: 1.5;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  .table th {
+    width: 7rem;
+    padding-right: 1rem;
+    white-space: nowrap;
+    color: var(--global-text-color-light);
   }
 }
 
@@ -1549,6 +1561,13 @@ html[data-theme="dark"] .pub-tag {
   background-color: var(--global-theme-color);
   color: white;
   margin-bottom: 0.5rem;
+}
+
+.publications .abbr .badge,
+.selected-pub-card .abbr .badge {
+  white-space: normal;
+  line-height: 1.2;
+  padding: 0.35rem 0.25rem;
 }
 
 // -----------------------------------------------------------------------------
